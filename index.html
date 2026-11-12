@@ -1,0 +1,1581 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 62%27%3E%3Cpath d=%27M11 2h42a9 9 0 0 1 9 9v26a9 9 0 0 1-9 9H28L12 60l5-14h-6a9 9 0 0 1-9-9V11a9 9 0 0 1 9-9z%27 fill=%27%23FF4D1C%27/%3E%3Ctext x=%2732%27 y=%2737%27 text-anchor=%27middle%27 font-family=%27Georgia,serif%27 font-weight=%27700%27 font-size=%2732%27 fill=%27%2314121F%27%3EJ%3C/text%3E%3C/svg%3E">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Joaquín Cogollo · Portafolio</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Portafolio de Joaquín Andrés Cogollo González, publicista y mercadólogo en Bogotá.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Young+Serif&family=Space+Grotesk:wght@500;600&family=Poppins:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: editorial de agencia — columna amplia alineada a la izquierda, tarjetas de proyecto en rejilla filtrable, casos en un visor modal */
+:root{
+  --paper:#14121F; --surface:#1B1630; --ink:#F4F1EA; --muted:#B3ADC6; --line:#2F2948;
+  --accent:#FF4D1C; --accent-soft:#3A1E1C; --on-accent:#FFFFFF;
+  --night:#0C0916; --night-ink:#F4F1EA; --night-muted:#ABA5BE; --night-line:#2F2948;
+  --shadow:0 22px 44px -24px rgba(0,0,0,.85);
+  --coral:#FF4D1C; --sun:#FFC83D; --teal:#14B8A6; --violet:#7B5CFF; --pink:#FF5FA2; --sky:#3BA7FF;
+  --hero:#14121F; --hero-ink:#FFFFFF; --hero-muted:#B3ADC6;
+  --f-display:"Bricolage Grotesque","Avenir Next","Segoe UI",system-ui,sans-serif;
+  --f-body:"Poppins","Segoe UI",system-ui,sans-serif;
+  --f-brand:"Young Serif",Georgia,serif;
+  --f-brand-sans:"Space Grotesk","Segoe UI",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  --r:16px; --wrap:1180px;
+  color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background-color:var(--paper);background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:64px 64px;color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--hero)}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3,h4{font-family:var(--f-display);line-height:1.05;margin:0;text-wrap:balance;letter-spacing:-.02em}
+p{margin:0}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:6px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.eyebrow{font-family:var(--f-mono);font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.eyebrow::before{content:"● ";color:var(--coral)}
+.hl{background:linear-gradient(90deg,var(--coral),var(--sun));-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:.06em}
+.lead{font-size:1.08rem;color:var(--muted);max-width:62ch}
+.btn{display:inline-flex;align-items:center;gap:.6em;font:600 .95rem/1 var(--f-body);padding:.95em 1.4em;border-radius:999px;border:1.5px solid transparent;cursor:pointer;text-decoration:none;transition:transform .2s,background .2s,color .2s,border-color .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-accent{background:var(--accent);color:var(--on-accent)}
+.btn-ghost{background:transparent;color:inherit;border-color:currentColor}
+.btn svg{width:18px;height:18px}
+
+/* ---------- Nav ---------- */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(20,18,31,.86);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:var(--hero-ink);border-bottom:1px solid rgba(255,255,255,.1)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--f-display);font-weight:800;font-size:1.05rem;letter-spacing:-.01em}
+.brand b{display:grid;place-items:center;width:34px;height:34px;border-radius:9px;background:conic-gradient(var(--coral) 0 25%,var(--sun) 0 50%,var(--teal) 0 75%,var(--pink) 0);color:#17181C;font-size:.9rem}
+.nav-links{display:flex;gap:4px;list-style:none;margin:0;padding:0}
+.nav-links a{display:block;padding:.55em .85em;border-radius:999px;font-size:.9rem;text-decoration:none;color:var(--hero-muted);transition:color .2s,background .2s}
+.nav-links a:hover,.nav-links a.on{color:#fff;background:rgba(255,255,255,.12)}
+.nav-cta{font-size:.85rem;padding:.7em 1.1em}
+@media (max-width:820px){.nav-links{display:none}}
+
+/* ---------- Hero ---------- */
+.hero{background:var(--hero);color:var(--hero-ink);position:relative;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:32px;align-items:center;padding-block:56px 0}
+.hero-text{padding-bottom:64px;position:relative;z-index:2}
+.hero h1{font-size:clamp(2.6rem,6.2vw,5.2rem);font-weight:800}
+.hero h1 .sur{display:block;color:var(--sun);font-weight:500}
+.hero-role{margin-top:22px;font-size:clamp(1.15rem,2.1vw,1.5rem);font-family:var(--f-display);font-weight:500}
+.rot{display:inline-grid;vertical-align:bottom;font-weight:700}
+.rot span{grid-area:1/1;transition:opacity .45s,transform .45s;color:var(--c,var(--coral))}
+.rot span:not(.on){opacity:0;transform:translateY(.4em)}
+.hero p.lead{color:var(--hero-muted);margin-top:16px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.hero .btn-accent{background:var(--coral);color:#fff}
+.hero .btn-ghost{color:#fff}
+.hero-meta{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:34px;font-family:var(--f-mono);font-size:.8rem;color:var(--hero-muted)}
+.hero-meta span:nth-child(1)::before{content:"● ";color:var(--sun)}
+.hero-meta span:nth-child(2)::before{content:"● ";color:var(--teal)}
+.hero-meta span:nth-child(3)::before{content:"● ";color:var(--pink)}
+/* Foto */
+.hero-visual{position:relative;align-self:stretch;min-height:clamp(460px,48vw,640px);height:auto;display:flex;justify-content:center;align-items:flex-end}
+.hv-disc{position:absolute;bottom:-12%;left:50%;width:min(92%,520px);aspect-ratio:1;transform:translateX(-50%);border-radius:50%;background:var(--coral)}
+.hv-ring{position:absolute;top:6%;right:4%;width:150px;aspect-ratio:1;border-radius:50%;border:22px solid var(--sun)}
+.hv-pill{position:absolute;left:4%;top:22%;width:140px;height:54px;border-radius:999px;background:var(--teal);transform:rotate(-24deg)}
+.hv-dots{position:absolute;left:12%;bottom:22%;width:90px;height:90px;background-image:radial-gradient(var(--pink) 30%,transparent 32%);background-size:18px 18px}
+.hv-half{position:absolute;right:10%;bottom:30%;width:86px;height:43px;border-radius:86px 86px 0 0;background:var(--sky);transform:rotate(18deg)}
+.hero-photo{position:absolute;bottom:0;left:50%;translate:-50% 0;z-index:1;height:calc(100% - 16px);width:auto;max-width:none;filter:drop-shadow(0 26px 30px rgba(20,8,60,.45));transform-origin:bottom center;animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+@keyframes rise{from{transform:translateY(24px)}to{transform:none}}
+.sticker{position:absolute;z-index:3;font:700 .85rem var(--f-display);padding:.55em 1em;border-radius:999px;color:#17181C;box-shadow:0 12px 24px -12px rgba(0,0,0,.6);white-space:nowrap;animation:bob 4s ease-in-out infinite}
+.sticker.s1{background:var(--sun);top:20%;left:6%;transform:rotate(-6deg)}
+.sticker.s2{background:var(--teal);color:#fff;top:44%;right:2%;animation-delay:-1.3s}
+.sticker.s3{background:var(--pink);color:#fff;bottom:16%;left:2%;animation-delay:-2.6s}
+@keyframes bob{50%{translate:0 -8px}}
+.hero-strip{background:var(--sun);color:#17181C;position:relative;z-index:2}
+.hero-strip .wrap{padding-block:28px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);gap:28px;align-items:center}
+.hero-strip h2{font-size:clamp(1.5rem,3vw,2.1rem);font-weight:800}
+.hero-strip p{font-size:.95rem;margin-top:6px;color:#3A3420}
+@media (max-width:900px){.hero .wrap{grid-template-columns:1fr;padding-block:44px 0}.hero-text{padding-bottom:8px}.hero-visual{min-height:480px;height:480px}.hero-strip .wrap{grid-template-columns:1fr}}
+@media (max-width:480px){.hero-visual{min-height:440px;height:440px}.hv-ring{width:110px;border-width:16px}.sticker{font-size:.78rem}}
+
+
+/* ---------- Portada (presentación) ---------- */
+.portada{--px:70%;--py:40%;position:relative;overflow:hidden;min-height:calc(100svh - 64px);display:flex;flex-direction:column;color:#F4F1EA;background:#14121F}
+.portada::before{content:"";position:absolute;inset:0;background:radial-gradient(42vmax 42vmax at var(--px) var(--py),rgba(255,90,60,.55),transparent 62%),radial-gradient(38vmax 38vmax at calc(100% - var(--px)) calc(100% - var(--py)),rgba(109,74,255,.5),transparent 60%);transition:background-position .3s;pointer-events:none}
+.portada::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:64px 64px;mask-image:linear-gradient(to bottom,#000 30%,transparent 95%);-webkit-mask-image:linear-gradient(to bottom,#000 30%,transparent 95%);pointer-events:none}
+.pt-in{position:relative;z-index:2;flex:1;width:100%;max-width:var(--wrap);margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 40px;display:flex;flex-direction:column;gap:clamp(20px,4vh,40px)}
+.pt-top{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:var(--f-mono);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(244,241,234,.7);border-bottom:1px solid rgba(255,255,255,.14);padding-bottom:14px}
+.pt-top b{color:var(--sun);font-weight:500}
+.pt-word{margin:auto 0 0;font-family:var(--f-display);font-weight:800;line-height:.82;letter-spacing:-.055em;font-size:clamp(3.6rem,15.5vw,14.5rem);display:flex;flex-direction:column}
+.pt-word .solid{color:#F4F1EA}
+.pt-word .line{display:block;overflow:hidden;padding-bottom:.04em;padding-right:.12em}
+.pt-word .line > .outline{padding-right:.1em;margin-right:-.1em}
+.pt-word .line > span{display:inline-block;animation:rise2 1s cubic-bezier(.2,.8,.2,1) both}
+.pt-word .line:nth-child(2) > span{animation-delay:.12s}
+.pt-word .line > .outline{color:transparent;-webkit-text-stroke:2px #F4F1EA;background:linear-gradient(90deg,var(--coral),var(--sun));-webkit-background-clip:text;background-clip:text;background-size:0% 100%;background-repeat:no-repeat;animation:rise2 1s .12s cubic-bezier(.2,.8,.2,1) both,fillin 1.4s .9s cubic-bezier(.6,0,.2,1) forwards}
+@keyframes rise2{from{transform:translateY(60%)}to{transform:none}}
+@keyframes fillin{to{background-size:100% 100%;-webkit-text-stroke-color:transparent}}
+.pt-word .dot{color:var(--coral)}
+.pt-bottom{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:28px;align-items:end}
+.pt-name{font-family:var(--f-display);font-size:clamp(1.6rem,3.6vw,2.8rem);font-weight:500;line-height:1.02;letter-spacing:-.02em}
+.pt-name b{display:block;font-weight:800}
+.pt-role{margin-top:12px;font-size:1rem;color:rgba(244,241,234,.75)}
+.pt-role em{font-style:normal;color:var(--sun)}
+.pt-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:1px solid rgba(255,255,255,.16);border-radius:16px;overflow:hidden;background:rgba(255,255,255,.04);backdrop-filter:blur(6px)}
+.pt-stats div{padding:14px 16px;border-left:1px solid rgba(255,255,255,.12)}
+.pt-stats div:first-child{border-left:0}
+.pt-stats b{display:block;font:800 clamp(1.6rem,3vw,2.4rem)/1 var(--f-display);color:#fff}
+.pt-stats span{font-size:.78rem;color:rgba(244,241,234,.7)}
+.pt-cta{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.pt-cta a{display:inline-flex;align-items:center;gap:10px;color:#17181C;background:var(--sun);text-decoration:none;font:700 .95rem var(--f-body);padding:.9em 1.4em;border-radius:999px;transition:transform .2s}
+.pt-cta a:hover{transform:translateY(-2px)}
+.pt-cta a.ghost{background:transparent;color:#F4F1EA;border:1.5px solid rgba(255,255,255,.4)}
+.pt-marquee{position:relative;z-index:2;background:var(--sun);color:#17181C;overflow:hidden;white-space:nowrap;border-block:2px solid #17181C;transform:rotate(-1.2deg) scale(1.02);margin-bottom:18px}
+.pt-track{display:inline-flex;gap:28px;padding:12px 0;animation:mq 32s linear infinite;font:700 clamp(.95rem,1.6vw,1.2rem) var(--f-display);text-transform:uppercase;letter-spacing:.02em}
+.pt-track span::after{content:"✦";margin-left:28px;color:var(--coral)}
+@keyframes mq{to{transform:translateX(-50%)}}
+@media (max-width:760px){.pt-bottom{grid-template-columns:1fr}.pt-word{margin-top:8vh}}
+@media (prefers-reduced-motion:reduce){.pt-word .line > .outline{background-size:100% 100%;-webkit-text-stroke-color:transparent}}
+
+/* Atmósfera compartida con la portada */
+main > section,.about{position:relative;isolation:isolate;overflow-x:clip}
+html,body{overflow-x:clip}
+.pt-marquee.alt{overflow:hidden}
+main > section::before,.about::before{content:"";position:absolute;z-index:-1;pointer-events:none;width:46vmax;height:46vmax;border-radius:50%;background:radial-gradient(closest-side,var(--glow,rgba(123,92,255,.22)),transparent);top:-10vmax;right:-14vmax}
+.about::before{--glow:rgba(255,90,60,.2);left:-16vmax;right:auto}
+#universidad::before{--glow:rgba(255,200,61,.12);left:-16vmax;right:auto}
+#proceso::before{--glow:rgba(255,90,60,.18)}
+#perfil::before{--glow:rgba(20,184,166,.14);left:-16vmax;right:auto}
+.pt-marquee.alt{transform:rotate(1.2deg) scale(1.02);background:var(--coral);color:#fff;margin:0}
+.pt-marquee.alt .pt-track span::after{color:var(--sun)}
+.pt-marquee.alt .pt-track{animation-direction:reverse}
+
+/* Movimiento compartido */
+main > section::before,.about::before{animation:drift 16s ease-in-out infinite alternate}
+#trabajo::before{animation-duration:19s}
+#universidad::before{animation-duration:22s;animation-delay:-6s}
+#proceso::before{animation-duration:14s;animation-delay:-3s}
+#perfil::before{animation-duration:20s;animation-delay:-9s}
+@keyframes drift{0%{transform:translate(0,0) scale(1)}50%{transform:translate(-14vw,10vh) scale(1.15)}100%{transform:translate(8vw,24vh) scale(.92)}}
+.aura{position:fixed;inset:0;z-index:40;pointer-events:none;mix-blend-mode:screen;opacity:.55;background:radial-gradient(28vmax 28vmax at var(--mx,70%) var(--my,30%),rgba(255,90,60,.22),transparent 65%),radial-gradient(24vmax 24vmax at calc(100% - var(--mx,70%)) calc(100% - var(--my,30%)),rgba(123,92,255,.22),transparent 65%);transition:opacity .4s}
+.hl{background-image:linear-gradient(90deg,var(--coral),var(--sun),var(--pink),var(--coral));background-size:300% 100%;animation:shine 7s linear infinite}
+@keyframes shine{to{background-position:300% 0}}
+.rv{transition:transform .9s cubic-bezier(.2,.8,.2,1)}
+.rv.pre{transform:translateY(34px)}
+.card{transform-style:preserve-3d;will-change:transform}
+.card .cover{transition:transform .5s}
+.tool-ai{background:linear-gradient(135deg,color-mix(in srgb,var(--coral) 22%,var(--surface)),color-mix(in srgb,var(--violet) 22%,var(--surface)))!important;border-top-color:var(--sun)!important}
+@media (prefers-reduced-motion:reduce){.aura{display:none}.rv.pre{transform:none}}
+
+/* ---------- Sobre mí ---------- */
+.about{background:transparent;padding-block:96px;overflow:hidden}
+.about .wrap{display:block}
+.about-text{max-width:none!important}
+.about-head{display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(28px,4vw,56px);align-items:center;margin-bottom:10px}
+.about-title{display:flex;flex-direction:column;gap:12px;min-width:0}
+.about-body{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.frame{position:relative;width:clamp(260px,32vw,400px);aspect-ratio:1;margin:18px 34px 26px 14px}
+.frame::before{content:"";position:absolute;inset:0;border-radius:50%;background:var(--coral);transform:translate(16px,14px)}
+.frame::after{content:"";position:absolute;width:16%;height:16%;border-radius:50%;background:var(--sun);top:-6%;left:-7%;z-index:2;box-shadow:0 10px 20px -10px rgba(0,0,0,.6)}
+.frame-in{position:absolute;inset:0;z-index:1;border-radius:50%;padding:8px;background:linear-gradient(135deg,#F4F1EA,#D9D3E8);box-shadow:0 26px 44px -22px rgba(0,0,0,.8);transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.frame:hover .frame-in{transform:scale(1.03) rotate(-2deg)}
+.frame-in img{width:100%;height:100%;object-fit:cover;object-position:50% 50%;border-radius:50%}
+.frame .dots-deco{position:absolute;z-index:0;right:-34px;top:8%;width:60px;height:84px;background-image:radial-gradient(var(--teal) 30%,transparent 32%);background-size:14px 14px}
+@media (max-width:900px){.about-body{grid-template-columns:1fr;gap:14px}}
+.about-role .rot{white-space:nowrap}
+@media (max-width:560px){.about-title{display:contents}.about-head{grid-template-columns:auto minmax(0,1fr);column-gap:18px;row-gap:6px}.about-head .frame{grid-row:1/3;align-self:center}.about-title .eyebrow{grid-column:2;grid-row:1;align-self:end}.about-title h2{grid-column:2;grid-row:2;align-self:start}.about-role{grid-column:1/-1;grid-row:3;margin-top:10px}.about-role .rot{display:grid;justify-items:start;margin-top:2px}}
+@media (max-width:560px){.about-head{gap:18px}.frame{width:150px;margin:10px 18px 14px 6px}.frame-in{padding:5px}.frame .dots-deco{display:none}.frame::before{transform:translate(8px,8px)}.about h2{font-size:clamp(2rem,9vw,2.6rem)}}
+@media (max-width:380px){.frame{width:128px;margin:8px 12px 12px 4px}.about h2{font-size:1.85rem}}
+.about h2{font-size:clamp(2.6rem,6.5vw,5rem);font-weight:800;margin-top:4px}
+.about h2{letter-spacing:-.05em;line-height:.92}
+.about-text{display:flex;flex-direction:column;gap:16px;max-width:62ch}
+.about-text p{color:var(--muted);font-size:1.02rem}
+.about-text p strong{color:var(--ink);font-weight:600}
+.about-role{font-family:var(--f-display);font-weight:500;font-size:clamp(1.15rem,2vw,1.4rem);color:var(--ink)}
+.about-facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:6px}
+.about-facts div{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px;border-top:4px solid var(--fc)}
+.about-facts div:nth-child(1){--fc:var(--violet)}.about-facts div:nth-child(2){--fc:var(--teal)}.about-facts div:nth-child(3){--fc:var(--pink)}
+.about-facts small{display:block;font-family:var(--f-mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.about-facts b{font-weight:600;font-size:.95rem;line-height:1.35;display:block;margin-top:4px}
+.about .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:10px}
+.about .btn-accent{background:var(--coral);color:#fff}
+@media (max-width:860px){.about-facts{grid-template-columns:1fr}}
+
+
+/* ---------- Servicios ---------- */
+.services{background:var(--surface);border-block:1px solid var(--line)}
+.svc-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:16px}
+.svc-grid .svc{grid-column:span 2}
+.svc-grid .svc:nth-child(n+4){grid-column:span 3}
+.svc{position:relative;border:1px solid var(--line);border-radius:18px;padding:24px;background:var(--paper);display:flex;flex-direction:column;gap:10px;overflow:hidden;transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s,border-color .35s;min-width:0}
+.svc::before{content:"";position:absolute;width:160px;height:160px;border-radius:50%;background:var(--sv);right:-60px;top:-60px;opacity:.16;transition:transform .5s cubic-bezier(.2,.7,.2,1),opacity .5s}
+.svc:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:var(--sv)}
+.svc:hover::before{transform:scale(2.4);opacity:.12}
+.svc-ic{position:relative;width:54px;height:54px;border-radius:15px;background:var(--sv);color:#fff;display:grid;place-items:center}
+.svc-ic svg{width:26px;height:26px}
+.svc h3{position:relative;font-size:1.35rem;font-weight:700}
+.svc p{position:relative;color:var(--muted);font-size:.93rem}
+.svc ul{position:relative;margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:6px}
+.svc li{font-size:.76rem;padding:.3em .7em;border-radius:6px;background:var(--surface);border:1px solid var(--line);color:var(--muted)}
+.svc-link{position:relative;margin-top:auto;align-self:flex-start;font:600 .86rem var(--f-body);background:transparent;border:0;padding:8px 0;color:var(--ink);cursor:pointer;text-decoration:underline;text-decoration-color:var(--sv);text-decoration-thickness:2px;text-underline-offset:5px}
+.svc-link:hover{color:var(--sv)}
+.svc-note{position:relative;margin-top:auto;font-family:var(--f-mono);font-size:.74rem;color:var(--muted);padding:8px 0}
+@media (max-width:980px){.svc-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.svc-grid .svc,.svc-grid .svc:nth-child(n+4){grid-column:auto}.svc-grid .svc:last-child{grid-column:1/-1}}
+@media (max-width:620px){.svc-grid{grid-template-columns:1fr}}
+
+
+/* ---------- Grupos por empresa ---------- */
+.groups{display:flex;flex-direction:column;gap:56px}
+.group[hidden]{display:none!important}
+.group-head{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:22px;align-items:center;padding:22px;margin-bottom:22px;border-radius:20px;background:color-mix(in srgb,var(--gc) 13%,var(--surface));border:1px solid color-mix(in srgb,var(--gc) 35%,var(--line))}
+.g-logo{width:128px;height:128px;border-radius:22px;background:#fff;display:grid;place-items:center;padding:8px;border:1px solid rgba(0,0,0,.06);box-shadow:0 14px 28px -16px rgba(0,0,0,.45)}
+.g-logo.dark{background:#0B0907}
+.g-logo img{max-width:100%;max-height:100%;object-fit:contain}
+.g-logo span{font:800 1.8rem var(--f-display);color:#fff}
+.g-info{display:flex;flex-direction:column;gap:4px;min-width:0}
+.g-num{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.g-info h3{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800}
+.g-meta{font-size:.9rem;font-weight:500}
+.g-info p{color:var(--muted);font-size:.93rem;max-width:70ch}
+.g-count{align-self:start;font:600 .82rem var(--f-body);padding:.45em .9em;border-radius:999px;background:var(--gc);color:#17181C;white-space:nowrap}
+@media (max-width:680px){.group-head{grid-template-columns:auto minmax(0,1fr)}.g-logo{width:88px;height:88px;border-radius:18px;padding:6px}.g-count{grid-column:1/-1;justify-self:start}}
+
+
+/* ---------- Universidad ---------- */
+.uni{background:transparent}
+.uni-tabs{display:flex;gap:10px;overflow-x:auto;padding-bottom:6px;margin-bottom:22px;scrollbar-width:thin}
+.uni-tab{flex:0 0 auto;display:flex;flex-direction:column;align-items:flex-start;gap:2px;min-width:150px;text-align:left;font:inherit;cursor:pointer;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);border-radius:16px;padding:12px 16px;transition:all .25s}
+.uni-tab small{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.uni-tab b{font-family:var(--f-display);font-size:1.05rem;font-weight:700}
+.uni-tab span{font-size:.8rem;color:var(--muted)}
+.uni-tab:hover{border-color:var(--uc)}
+.uni-tab[aria-selected="true"]{background:var(--uc);border-color:var(--uc);color:#fff}
+.uni-tab[aria-selected="true"] small,.uni-tab[aria-selected="true"] span{color:rgba(255,255,255,.85)}
+.uni-panel{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:28px;background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:28px;position:relative;overflow:hidden}
+.uni-panel::before{content:"";position:absolute;inset:0 0 auto;height:6px;background:var(--uc)}
+.up-text{display:flex;flex-direction:column;gap:12px;min-width:0}
+.up-meta{font-family:var(--f-mono);font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--uc)}
+.up-text h3{font-size:clamp(1.7rem,3.4vw,2.5rem);font-weight:800}
+.up-client{font-weight:600}
+.up-client span{font-weight:400;color:var(--muted)}
+.up-concept{font-family:var(--f-display);font-size:1.15rem;font-weight:500;padding:12px 16px;border-radius:12px;background:color-mix(in srgb,var(--uc) 12%,var(--surface));color:var(--ink)}
+.up-concept::before{content:"Concepto · ";font-family:var(--f-mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--uc)}
+.up-text p{color:var(--muted);font-size:.95rem}
+.up-text ul{margin:0;padding-left:18px;display:grid;gap:6px;color:var(--muted);font-size:.92rem}
+.up-tags{display:flex;flex-wrap:wrap;gap:6px}
+.up-actions{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding-top:14px;border-top:1px solid var(--line)}
+.up-did{display:flex;flex-direction:column;gap:12px;min-width:0}
+.up-sub{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--uc);margin-top:4px}
+.up-did ul{margin:0;padding-left:18px;display:grid;gap:8px;color:var(--ink);font-size:.95rem;line-height:1.55}
+.up-did li::marker{color:var(--uc)}
+.up-deliv{margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px}
+.up-deliv div{padding:10px 12px;border-radius:12px;background:color-mix(in srgb,var(--uc) 10%,var(--surface));border:1px solid var(--line)}
+.up-deliv dt{font-weight:700;font-size:.9rem}
+.up-deliv dd{margin:2px 0 0;color:var(--muted);font-size:.82rem}
+.up-actions .btn{background:var(--uc);color:#fff;padding:.8em 1.2em;font-size:.9rem}
+.up-team{font-size:.82rem;color:var(--muted)}
+.up-nav{display:flex;gap:6px;margin-left:auto}
+.up-mosaic{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;align-content:start}
+.up-mosaic button{border:0;padding:0;border-radius:12px;overflow:hidden;cursor:zoom-in;background:color-mix(in srgb,var(--uc) 15%,var(--paper));aspect-ratio:4/3;position:relative;max-width:100%}
+.up-mosaic button:first-child{grid-column:1/-1;aspect-ratio:16/9}
+.up-mosaic img{width:100%;height:100%;object-fit:contain;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.up-mosaic button:hover img{transform:scale(1.04)}
+.up-mosaic .more{position:absolute;right:8px;bottom:8px;font:600 .75rem var(--f-body);background:rgba(15,15,20,.75);color:#fff;padding:.35em .7em;border-radius:999px}
+.uni-panel.swap .up-text,.uni-panel.swap .up-did{animation:fadeUp .45s cubic-bezier(.2,.7,.2,1)}
+@keyframes fadeUp{from{transform:translateY(10px)}to{transform:none}}
+@media (max-width:860px){.uni-panel{grid-template-columns:1fr;padding:20px}.up-mosaic{order:-1}}
+
+
+/* Barra de servicios */
+.svc-bar{display:flex;flex-direction:column;gap:12px;margin-bottom:36px}
+.svc-chips{display:flex;flex-wrap:wrap;gap:8px}
+.svc-chip{display:inline-flex;align-items:center;gap:8px;padding:.7em 1.1em}
+.svc-chip::before{display:none!important}
+.svc-chip svg{width:18px;height:18px;color:var(--cc)}
+.svc-chip[aria-pressed="true"] svg{color:#fff}
+.svc-desc{margin:0;font-size:.95rem;color:var(--muted);padding-left:14px;border-left:3px solid var(--cc,var(--ink));max-width:70ch}
+.svc-empty{border:1.5px dashed var(--line);border-radius:20px;padding:32px;display:flex;flex-direction:column;gap:10px;align-items:flex-start;background:var(--surface)}
+.svc-empty b{font-family:var(--f-display);font-size:1.5rem}
+.svc-empty p{color:var(--muted);max-width:60ch}
+.svc-empty .btn{background:var(--coral);color:#fff}
+.card[hidden]{display:none!important}
+
+
+/* Formación desplegable en Sobre mí */
+.about-facts .fact-btn{all:unset;box-sizing:border-box;display:block;cursor:pointer;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px;border-top:4px solid var(--violet);transition:border-color .2s,transform .2s,background .2s}
+.about-facts .fact-btn:hover{transform:translateY(-2px);border-color:var(--violet)}
+.about-facts .fact-btn:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.about-facts .fact-btn[aria-expanded="true"]{background:color-mix(in srgb,var(--violet) 18%,var(--surface))}
+.fact-more{display:inline-flex;align-items:center;gap:6px;margin-top:8px;font:600 .75rem var(--f-body);color:var(--sun)}
+.fact-more i{font-style:normal;transition:transform .3s}
+.fact-btn[aria-expanded="true"] .fact-more i{transform:rotate(180deg)}
+.edu-panel{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s cubic-bezier(.2,.7,.2,1)}
+.edu-panel.open{grid-template-rows:1fr}
+.edu-inner{overflow:hidden;min-height:0}
+.edu-panel.open .edu-inner{padding:18px;margin-top:4px;border:1px solid var(--line);border-radius:16px;background:var(--surface)}
+.about-facts{grid-template-columns:1.3fr 1fr 1fr}
+@media (max-width:860px){.about-facts{grid-template-columns:1fr}}
+
+/* Método en acordeón */
+.acc{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.acc li{border-bottom:1px solid var(--line);--sc:var(--coral)}
+.acc li:nth-child(2){--sc:var(--sun)}.acc li:nth-child(3){--sc:var(--teal)}.acc li:nth-child(4){--sc:var(--pink)}
+.acc-btn{all:unset;box-sizing:border-box;width:100%;display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:20px;padding:22px 4px;cursor:pointer;color:var(--muted);transition:color .25s}
+.acc-btn:hover,.acc-btn[aria-expanded="true"]{color:var(--ink)}
+.acc-btn:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:8px}
+.acc-num{font-family:var(--f-mono);font-size:.85rem;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;border:1.5px solid var(--line);transition:all .25s}
+.acc-btn[aria-expanded="true"] .acc-num{background:var(--sc);border-color:var(--sc);color:#17181C}
+.acc-t{display:flex;flex-direction:column;gap:2px;min-width:0}
+.acc-t b{font-family:var(--f-display);font-size:clamp(1.4rem,3vw,2.2rem);font-weight:700;letter-spacing:-.02em;line-height:1.1}
+.acc-t span{font-size:.92rem;color:var(--muted)}
+.acc-ic{width:40px;height:40px;border-radius:50%;border:1.5px solid var(--line);display:grid;place-items:center;transition:transform .35s,background .25s,border-color .25s}
+.acc-ic svg{width:18px;height:18px}
+.acc-btn[aria-expanded="true"] .acc-ic{transform:rotate(45deg);background:var(--sc);border-color:var(--sc);color:#17181C}
+.acc-panel{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s cubic-bezier(.2,.7,.2,1)}
+.acc-panel.open{grid-template-rows:1fr}
+.acc-inner{overflow:hidden;min-height:0}
+.acc-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;padding:0 4px 26px 64px}
+.acc-body p{color:var(--muted)}
+.acc-body ul{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+.acc-body li{display:flex;gap:10px;align-items:flex-start;border:0}
+.acc-body li::before{content:"";width:8px;height:8px;margin-top:.55em;border-radius:2px;background:var(--sc);flex-shrink:0}
+.acc-body .tools{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.acc-body .tools span{font-family:var(--f-mono);font-size:.74rem;padding:.35em .7em;border-radius:6px;border:1px solid var(--line);color:var(--ink)}
+@media (max-width:760px){.acc-body{grid-template-columns:1fr;padding-left:4px}.acc-btn{gap:14px}}
+
+
+/* Marca personal (manual de identidad) */
+.brand{gap:10px}
+.brand .iso{width:36px;height:35px;flex-shrink:0}
+.brand-name{font-family:var(--f-brand);font-weight:400;font-size:1.12rem;letter-spacing:0}
+.ti{position:relative;display:inline-block}
+.ti .bub{position:absolute;left:50%;top:-.02em;width:.42em;height:.34em;transform:translateX(-46%);background:var(--coral);border-radius:.08em;font-style:normal}
+.ti .bub::after{content:"";position:absolute;left:.06em;bottom:-.12em;border-left:.1em solid var(--coral);border-bottom:.13em solid transparent;transform:skewX(-20deg)}
+.logo{display:inline-flex;flex-direction:column;font-family:var(--f-brand);font-weight:400;line-height:1.02;letter-spacing:-.005em;color:#F4F1EA}
+.logo .l1,.logo .l2{display:block}
+.logo .desc{display:block;margin-top:.9em;font:500 clamp(.62rem,1vw,.78rem)/1 var(--f-brand-sans);letter-spacing:.42em;text-transform:uppercase;color:var(--muted)}
+.pt-name .logo{font-size:clamp(2rem,4.4vw,3.4rem)}
+.pt-name .ti .bub{top:.02em}
+.brand-name .ti .bub{top:.08em}
+.logo-sm{font-size:1.05rem}
+.logo-sm .desc{font-size:.55rem;letter-spacing:.32em;margin-top:.6em}
+.ft-brand{display:flex;align-items:center;gap:12px}
+.ft-brand .iso{width:40px;height:39px}
+
+
+/* ---------- Tarifas ---------- */
+#tarifas::before{--glow:rgba(255,77,28,.18);left:-16vmax;right:auto}
+.rates{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:24px;align-items:start}
+.rate-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.rate{all:unset;box-sizing:border-box;cursor:pointer;display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:14px;padding:14px 16px;border-radius:14px;background:var(--surface);border:1.5px solid var(--line);transition:border-color .2s,transform .2s,background .2s}
+.rate:hover{transform:translateY(-2px);border-color:color-mix(in srgb,var(--coral) 60%,var(--line))}
+.rate:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.rate.on{border-color:var(--coral);background:color-mix(in srgb,var(--coral) 14%,var(--surface))}
+.rate-combo{background:linear-gradient(135deg,color-mix(in srgb,var(--coral) 26%,var(--surface)),color-mix(in srgb,var(--violet) 22%,var(--surface)));border-color:color-mix(in srgb,var(--coral) 50%,var(--line))}
+.rate-combo .rate-ic{background:var(--sun);color:#17181C}
+.rate-ic{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;color:var(--coral);background:color-mix(in srgb,var(--coral) 14%,transparent)}
+.rate-ic svg{width:22px;height:22px}
+.rate.on .rate-ic{background:var(--coral);color:#fff}
+.rate-t{display:flex;flex-direction:column;gap:2px;min-width:0}
+.rate-t b{font-weight:600;font-size:.98rem;line-height:1.25}
+.rate-t small{color:var(--muted);font-size:.8rem;line-height:1.35}
+.rate-p{font:800 1.15rem var(--f-display);white-space:nowrap;font-variant-numeric:tabular-nums}
+.rate-r{display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+.qty{display:inline-flex;align-items:center;border:1.5px solid var(--line);border-radius:999px;background:color-mix(in srgb,var(--paper) 60%,transparent);cursor:default}
+.qty button{all:unset;box-sizing:border-box;cursor:pointer;width:30px;height:30px;display:grid;place-items:center;border-radius:50%;font:700 1.05rem var(--f-body);color:var(--ink);transition:background .2s,color .2s}
+.qty button:hover{background:color-mix(in srgb,var(--coral) 22%,transparent)}
+.qty button:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.qty button:disabled{opacity:.3;cursor:default;background:none}
+.qty output{min-width:26px;text-align:center;font:700 .95rem var(--f-body);font-variant-numeric:tabular-nums}
+.rate.on .qty{border-color:var(--coral)}
+.rate.on .qty button[data-d="1"]{background:var(--coral);color:#fff}
+.q-list li span i{font-style:normal;color:var(--coral);font-weight:700;margin-right:4px}
+.quote{position:sticky;top:calc(84px + env(safe-area-inset-top,0px));background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:22px;display:flex;flex-direction:column;gap:12px;box-shadow:var(--shadow)}
+.q-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px;max-height:220px;overflow:auto}
+.q-list li{display:flex;justify-content:space-between;gap:10px;font-size:.88rem;color:var(--muted)}
+.q-list li b{color:var(--ink);font-weight:600;font-variant-numeric:tabular-nums}
+.q-list .q-empty{font-style:italic}
+.q-row{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--line);padding-top:10px}
+.q-row b{font:800 1.8rem var(--f-display);font-variant-numeric:tabular-nums}
+.q-half b{font-size:1.2rem;color:var(--sun)}
+.q-cta{justify-content:center;background:var(--coral);color:#fff}
+.q-cta[aria-disabled="true"]{opacity:.5;pointer-events:none}
+.q-clear{all:unset;cursor:pointer;text-align:center;font-size:.82rem;color:var(--muted);text-decoration:underline}
+.q-clear:focus-visible{outline:2px solid var(--accent)}
+.q-pay{display:flex;flex-direction:column;gap:6px;margin-top:4px;padding-top:12px;border-top:1px dashed var(--line)}
+.q-pay-t{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.q-chips{display:flex;gap:6px}
+.q-chips span{font-size:.78rem;font-weight:700;padding:.25em .8em;border-radius:999px;background:color-mix(in srgb,var(--coral) 18%,transparent);color:#FF8A66}
+.q-pay b{font:800 1.25rem var(--f-display)}
+.q-pay small{color:var(--muted);font-size:.8rem}
+@media (max-width:960px){.rates{grid-template-columns:1fr}.quote{position:static}}
+@media (max-width:600px){.rate-grid{grid-template-columns:1fr}}
+
+/* Brief card */
+.brief{position:relative;z-index:1;background:#FFFDF6;color:#17181C;border-radius:18px;padding:22px 24px;box-shadow:0 24px 40px -26px rgba(60,40,0,.55)}
+.brief-head{display:flex;justify-content:space-between;align-items:center;gap:10px;border-bottom:2px solid #17181C;padding-bottom:12px}
+.brief-head strong{font-family:var(--f-display);font-size:1.05rem;letter-spacing:.02em;text-transform:uppercase}
+.brief-head small{font-family:var(--f-mono);font-size:.72rem;color:#5E6068}
+.brief dl{margin:14px 0 0;display:grid;grid-template-columns:auto 1fr;gap:10px 16px}
+.brief dt{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:#7A5A50;padding-top:3px}
+.brief dd{margin:0;font-size:.94rem;font-weight:500;line-height:1.4}
+.brief-body{transition:opacity .3s}
+.brief-body.fade{opacity:0}
+.brief-foot{display:flex;justify-content:space-between;align-items:center;margin-top:18px;gap:10px}
+.dots{display:flex;gap:6px}
+.dots button{width:28px;height:28px;border:0;background:transparent;padding:0;cursor:pointer;display:grid;place-items:center}
+.dots button::after{content:"";width:8px;height:8px;border-radius:50%;background:#CFCCC4;transition:background .2s,width .2s}
+.dots button.on::after{background:var(--coral);width:20px;border-radius:5px}
+.brief-open{font:600 .85rem var(--f-body);background:#17181C;color:#FBFAF7;border:0;border-radius:999px;padding:.6em 1em;cursor:pointer}
+.stamp{position:absolute;top:-14px;right:18px;background:var(--violet);color:#fff;font-family:var(--f-mono);font-size:.7rem;letter-spacing:.1em;padding:5px 10px;border-radius:6px;transform:rotate(-3deg)}
+
+/* ---------- Sections ---------- */
+section.block{padding-block:88px}
+.sec-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:20px;margin-bottom:36px}
+.sec-head{border-top:1px solid var(--line);padding-top:18px}
+.sec-head h2{font-size:clamp(2.6rem,7vw,5.4rem);font-weight:800;letter-spacing:-.05em;line-height:.9;margin-top:14px}
+
+/* Filters */
+.filters{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font:500 .88rem var(--f-body);padding:.6em 1.05em;border-radius:999px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;transition:all .2s}
+.chip:hover{border-color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--cc,var(--ink));color:#fff;border-color:var(--cc,var(--ink))}
+.chip[data-f="diseno"]{--cc:var(--coral)}.chip[data-f="campanas"]{--cc:var(--pink)}.chip[data-f="estrategia"]{--cc:var(--violet)}
+.chip::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--cc);margin-right:7px;vertical-align:middle}
+.chip .n{font-family:var(--f-mono);font-size:.75rem;opacity:.6;margin-left:4px}
+
+/* Work grid */
+.grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:22px}
+.card{grid-column:span 6;position:relative;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;cursor:pointer;text-align:left;padding:0;color:inherit;font:inherit;display:flex;flex-direction:column;transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s;min-width:0}
+.card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.card.wide{grid-column:span 12}
+.card.third{grid-column:span 4}
+.card[hidden]{display:none!important}
+.cover{position:relative;aspect-ratio:16/10;overflow:hidden;background:var(--night);max-width:100%}
+.card.wide .cover{aspect-ratio:21/9}
+.card.wide .strat-cover{aspect-ratio:21/6}
+.cover img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.card:hover .cover img{transform:scale(1.04)}
+.card-body{padding:20px 22px 24px;display:flex;flex-direction:column;gap:8px;flex:1}
+.card-top{display:flex;justify-content:space-between;gap:12px;font-family:var(--f-mono);font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.card h3{font-size:1.45rem;font-weight:700}
+.card p{color:var(--muted);font-size:.93rem}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:10px}
+.tag{font-size:.75rem;padding:.3em .7em;border-radius:6px;background:var(--paper);border:1px solid var(--line);color:var(--muted)}
+.view{position:absolute;top:14px;right:14px;z-index:2;font:600 .78rem var(--f-body);background:var(--sun);color:#17181C;padding:.5em .9em;border-radius:999px;transform:translateY(-6px);opacity:.0;transition:all .3s}
+.card:hover .view,.card:focus-visible .view{opacity:1;transform:none}
+@media (hover:none){.view{opacity:1;transform:none}}
+
+/* covers compuestos */
+.cv-cf{background:#0B0907;display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;padding:18px 18px 0;align-items:end}
+.cv-cf img{height:auto;border-radius:6px 6px 0 0;box-shadow:0 10px 30px rgba(0,0,0,.5)}
+.cv-cf img:nth-child(2){transform:translateY(-14px)}
+.card:hover .cv-cf img{transform:translateY(-6px)}
+.card:hover .cv-cf img:nth-child(2){transform:translateY(-22px)}
+.cv-cf img{transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.cv-hw{background:radial-gradient(120% 90% at 80% 10%,#5B0B07 0%,#1A0806 55%,#0B0605 100%);display:flex;gap:14px;padding:18px;align-items:center;justify-content:center}
+.cv-hw img{height:100%;width:auto;object-fit:contain;border-radius:6px;box-shadow:0 14px 30px rgba(0,0,0,.6)}
+.cv-app{background:radial-gradient(120% 100% at 50% 0%,#14463E 0%,#0A2A26 55%,#061A17 100%);display:flex;gap:16px;padding:18px;align-items:center;justify-content:center}
+.cv-app img{border-radius:10px;box-shadow:0 14px 30px rgba(0,0,0,.6)}
+.cv-app img.ph{height:100%;width:auto;flex:none;object-fit:contain}
+.cv-app img.dk{flex:1 1 0;min-width:0;width:0;height:auto;max-height:100%;object-fit:contain}
+.card:hover .cv-app img{transform:none}
+@media (max-width:680px){.cv-app img.dk{display:none}}
+.cv-vac{background:linear-gradient(180deg,#8FD3F4 0%,#BFE8B0 100%);display:flex;align-items:center;justify-content:center;padding:14px}
+.cv-vac img{height:100%;width:auto;object-fit:contain;border-radius:6px;box-shadow:0 14px 30px rgba(0,0,0,.35)}
+.cv-vid3{background:linear-gradient(180deg,#6CC6F0 0%,#9EDB8A 100%);display:flex;gap:12px;align-items:center;justify-content:center;padding:16px}
+.cv-vid3 img{height:100%;width:auto;aspect-ratio:9/16;object-fit:cover;border-radius:10px;box-shadow:0 14px 30px rgba(0,0,0,.35)}
+.card:hover .cv-vac img,.card:hover .cv-vid3 img{transform:none}
+.cv-pw{background:radial-gradient(110% 90% at 20% 20%,#3A2A12 0%,#17110A 60%,#0D0A06 100%);display:flex;gap:18px;padding:18px;align-items:center}
+.cv-pw img{border-radius:6px;box-shadow:0 14px 30px rgba(0,0,0,.6)}
+.cv-pw img.pw{height:100%;width:auto;aspect-ratio:1;flex:none;object-fit:cover}
+.cv-pw img.bn{flex:1 1 0;min-width:0;width:0;height:auto;object-fit:contain}
+.card:hover .cv-pw img{transform:none}
+.cv-web{background:linear-gradient(160deg,#E6EEF9,#FBE5EC);padding:22px 22px 0;display:flex;align-items:flex-end;justify-content:center;gap:16px}
+.browser{background:#fff;border-radius:10px 10px 0 0;overflow:hidden;box-shadow:0 20px 40px -18px rgba(23,40,80,.45);flex:1;max-width:84%}
+.browser i{display:flex;gap:5px;padding:8px 10px;background:#EEF0F4}
+.browser i::before,.browser i::after,.browser i b{content:"";width:7px;height:7px;border-radius:50%;background:#C9CDD6}
+.browser img{width:100%;height:auto}
+.cv-vol{background:radial-gradient(120% 120% at 20% 0%,#2C5BE0,#0F2F94);display:flex;align-items:center;justify-content:center;gap:clamp(18px,4vw,48px);padding:18px}
+.cv-vol img{height:100%;width:auto;border-radius:6px;box-shadow:0 18px 34px -14px rgba(0,0,0,.6);transform:rotate(-3deg);transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.card:hover .cv-vol img{transform:rotate(0) scale(1.03)}
+.vol-txt{color:#fff;display:flex;flex-direction:column}
+.vol-txt b{font:800 clamp(2.4rem,6vw,4.6rem)/1 var(--f-display);color:var(--sun)}
+.vol-txt span{font-family:var(--f-mono);font-size:.8rem;letter-spacing:.1em;text-transform:uppercase}
+.cv-photo{background:#1B1630}
+.cv-photo img{width:100%;height:100%;object-fit:cover}
+.cv-pz{background:linear-gradient(135deg,#FCD889,#F7E9B8);display:grid;grid-template-columns:1fr 1fr 1.6fr;gap:12px;padding:18px;align-items:center}
+.cv-pz img{width:100%;height:auto;border-radius:6px;box-shadow:0 12px 26px -12px rgba(40,30,0,.55);transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.cv-pz img:nth-child(1){transform:rotate(-4deg)}.cv-pz img:nth-child(2){transform:rotate(3deg) translateY(-6px)}
+.card:hover .cv-pz img:nth-child(1){transform:rotate(-7deg) translateY(-6px)}.card:hover .cv-pz img:nth-child(2){transform:rotate(5deg) translateY(-12px)}
+.cv-rin{background:#FFF8EC;display:grid;grid-template-columns:1.05fr 1fr;align-items:center;gap:0}
+.cv-rin img{height:100%;object-fit:cover}
+.cv-rin .lg{object-fit:contain;padding:18% 12%}
+
+.strat-cover{position:relative;aspect-ratio:16/10;padding:22px;display:flex;flex-direction:column;justify-content:space-between;background:var(--sc,var(--violet));color:#fff;overflow:hidden;max-width:100%}
+.strat-cover .big{position:relative;z-index:1;font-family:var(--f-display);font-weight:800;font-size:clamp(1.6rem,3vw,2.3rem);line-height:1;letter-spacing:-.02em;max-width:12ch}
+.strat-cover .kind{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.8)}
+.strat-cover .ring{position:absolute;right:-50px;bottom:-60px;width:200px;height:200px;border-radius:50%;border:26px solid var(--rc,var(--sun));opacity:.95;transition:transform .6s}
+.card:hover .strat-cover .ring{transform:scale(1.12) rotate(20deg)}
+.strat-cover .bars{display:flex;align-items:flex-end;gap:5px;height:56px;position:relative;z-index:1}
+.strat-cover .bars i{width:12px;border-radius:3px 3px 0 0;background:rgba(255,255,255,.35)}
+.strat-cover .bars i:last-child{background:var(--rc,var(--sun))}
+@media (max-width:980px){.card.third{grid-column:span 6}}
+@media (max-width:680px){.card,.card.third,.card.wide{grid-column:span 12}.card.wide .cover,.card.wide .strat-cover{aspect-ratio:16/10}}
+.empty{grid-column:span 12;padding:40px;text-align:center;color:var(--muted);border:1.5px dashed var(--line);border-radius:var(--r)}
+
+/* ---------- Proceso ---------- */
+.dark{background:transparent;color:var(--night-ink)}
+#proceso{background:transparent}
+#proceso .step-panel{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.14)}
+#proceso .step-btn{border-bottom-color:rgba(255,255,255,.14)}
+.contact{background:radial-gradient(40vmax 30vmax at 85% 30%,rgba(255,90,60,.35),transparent 65%),radial-gradient(36vmax 30vmax at 10% 90%,rgba(123,92,255,.35),transparent 65%);color:#fff;border-top:1px solid var(--line)}
+.contact .lead{color:var(--muted)!important}
+
+.contact .c-item{background:rgba(255,255,255,.05);border-color:var(--line);backdrop-filter:blur(6px)}
+.contact .c-item small{color:var(--muted)}
+.contact .c-item button,.contact .c-item a.go{color:#fff;border-color:rgba(255,255,255,.3)}
+.contact .c-item button:hover,.contact .c-item a.go:hover{background:var(--sun);color:#17181C;border-color:var(--sun)}
+.dark .lead{color:var(--night-muted)}
+.steps{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:40px;align-items:start}
+.step-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px;counter-reset:s}
+.step-btn{width:100%;display:flex;align-items:center;gap:18px;background:transparent;border:0;border-bottom:1px solid var(--night-line);color:var(--night-muted);padding:18px 4px;cursor:pointer;text-align:left;font:inherit;transition:color .25s}
+.step-btn .num{font-family:var(--f-mono);font-size:.85rem;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;border:1.5px solid var(--night-line);flex-shrink:0;transition:all .25s}
+.step-btn .t{font-family:var(--f-display);font-size:clamp(1.3rem,2.6vw,1.9rem);font-weight:700;letter-spacing:-.01em}
+.step-btn[aria-selected="true"]{color:var(--night-ink)}
+.step-btn[aria-selected="true"] .num{background:var(--sc,var(--coral));border-color:var(--sc,var(--coral));color:#17181C}
+.step-list li:nth-child(1){--sc:var(--coral)}.step-list li:nth-child(2){--sc:var(--sun)}.step-list li:nth-child(3){--sc:var(--teal)}.step-list li:nth-child(4){--sc:var(--pink)}
+.step-btn:hover{color:var(--night-ink)}
+.step-panel{background:#1F2026;border:1px solid var(--night-line);border-radius:18px;padding:30px;min-height:100%}
+.step-panel h3{font-size:1.6rem;margin-bottom:10px}
+.step-panel p{color:var(--night-muted)}
+.step-panel ul{margin:18px 0 0;padding:0;list-style:none;display:grid;gap:10px}
+.step-panel li{display:flex;gap:10px;align-items:flex-start}
+.step-panel li::before{content:"";width:8px;height:8px;margin-top:.55em;border-radius:2px;background:var(--sun);flex-shrink:0}
+.step-panel .tools{display:flex;flex-wrap:wrap;gap:6px;margin-top:22px}
+.step-panel .tools span{font-family:var(--f-mono);font-size:.74rem;padding:.35em .7em;border-radius:6px;border:1px solid var(--night-line);color:var(--night-ink)}
+@media (max-width:860px){.steps{grid-template-columns:1fr}}
+
+/* ---------- Perfil ---------- */
+.profile{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px}
+.timeline{list-style:none;margin:0;padding:0;border-left:2px solid var(--line);display:flex;flex-direction:column;gap:6px}
+.tl{position:relative;padding:0 0 0 26px}
+.tl::before{content:"";position:absolute;left:-8px;top:22px;width:14px;height:14px;border-radius:50%;background:var(--tc,var(--coral))}
+.tl:nth-child(2){--tc:var(--violet)}.tl:nth-child(3){--tc:var(--teal)}
+.tl summary em{color:var(--tc,var(--coral))!important}
+.tl details{border-radius:12px;padding:14px 16px;transition:background .2s}
+.tl details[open]{background:var(--surface);box-shadow:var(--shadow)}
+.tl summary{cursor:pointer;list-style:none;display:flex;flex-direction:column;gap:2px}
+.tl summary::-webkit-details-marker{display:none}
+.tl summary strong{font-family:var(--f-display);font-size:1.2rem}
+.tl summary span{font-size:.88rem;color:var(--muted)}
+.tl summary em{font-style:normal;font-family:var(--f-mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.tl summary::after{content:"Ver funciones +";font-size:.78rem;color:var(--muted);margin-top:4px}
+.tl details[open] summary::after{content:"Ocultar −"}
+.tl ul{margin:12px 0 0;padding-left:18px;color:var(--muted);font-size:.92rem;display:grid;gap:6px}
+.col-title{font-size:1.5rem;margin-bottom:18px}
+.skills{display:flex;flex-wrap:wrap;gap:8px}
+.skill{font-size:.9rem;padding:.5em .9em;border-radius:999px;background:var(--surface);border:1.5px solid var(--kc)}
+.skill:nth-child(4n+1){--kc:var(--coral)}.skill:nth-child(4n+2){--kc:var(--teal)}.skill:nth-child(4n+3){--kc:var(--violet)}.skill:nth-child(4n+4){--kc:var(--sun)}
+.tools-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px;margin-top:10px}
+.tool{background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--tc);border-radius:12px;padding:12px 14px;display:flex;align-items:center;gap:12px;transition:transform .25s,border-color .25s}
+.tool:hover{transform:translateY(-3px);border-color:var(--tc)}
+.tool > div{display:flex;flex-direction:column;gap:2px;min-width:0}
+.tool-ic{flex-shrink:0;width:42px;height:42px;border-radius:12px;display:grid;place-items:center;color:var(--tc);background:color-mix(in srgb,var(--tc) 16%,transparent);border:1px solid color-mix(in srgb,var(--tc) 40%,transparent)}
+.tool-ic svg{width:22px;height:22px}
+.tool-ai .tool-ic{color:#17181C;background:linear-gradient(135deg,var(--coral),var(--sun));border:0}
+.tool:nth-child(5n+1){--tc:var(--coral)}.tool:nth-child(5n+2){--tc:var(--sky)}.tool:nth-child(5n+3){--tc:var(--sun)}.tool:nth-child(5n+4){--tc:var(--pink)}.tool:nth-child(5n+5){--tc:var(--teal)}
+.tool b{font-weight:600}
+.tool small{font-family:var(--f-mono);font-size:.72rem;color:var(--muted)}
+.tool small.hi{color:var(--accent)}
+.edu{display:grid;gap:12px;margin-top:10px}
+.edu div{display:flex;justify-content:space-between;gap:16px;border-bottom:1px solid var(--line);padding-bottom:12px}
+.edu b{display:block}
+.edu span{color:var(--muted);font-size:.9rem}
+.edu time{font-family:var(--f-mono);font-size:.85rem;color:var(--violet);white-space:nowrap}
+.pub{margin-top:28px;background:color-mix(in srgb,var(--teal) 16%,var(--surface));border-radius:16px;padding:22px}
+.pub p{font-size:.92rem}
+.pub a{color:var(--ink);text-decoration-color:var(--teal);text-decoration-thickness:2px;font-weight:600;word-break:break-all}
+.certs{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.certs span{font-size:.85rem;padding:.4em .8em;border-radius:8px;border:1px dashed var(--line);color:var(--muted)}
+@media (max-width:860px){.profile{grid-template-columns:1fr;gap:40px}}
+
+/* ---------- Contacto ---------- */
+.contact .wrap{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:48px;align-items:end;padding-block:96px}
+.contact h2{font-size:clamp(2.4rem,6vw,4.6rem);font-weight:800}
+
+.c-list{display:grid;gap:10px}
+.c-item{display:flex;align-items:center;justify-content:space-between;gap:12px;background:#1F2026;border:1px solid var(--night-line);border-radius:14px;padding:14px 16px;min-width:0}
+.c-item div{min-width:0}
+.c-item small{display:block;font-family:var(--f-mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--night-muted)}
+.c-item b{font-weight:500;user-select:all;word-break:break-all}
+.c-item button,.c-item a.go{flex-shrink:0;font:600 .8rem var(--f-body);background:transparent;color:var(--night-ink);border:1.5px solid var(--night-line);border-radius:999px;padding:.5em .9em;cursor:pointer;text-decoration:none}
+.c-item button:hover,.c-item a.go:hover{border-color:var(--accent);color:var(--accent)}
+footer{background:var(--hero);color:var(--night-muted);border-top:1px solid var(--night-line);font-size:.82rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;padding-block:22px calc(22px + env(safe-area-inset-bottom,0px))}
+@media (max-width:860px){.contact .wrap{grid-template-columns:1fr;padding-block:72px}}
+
+/* ---------- Visor de casos ---------- */
+dialog.case{width:min(1180px,100%);max-width:100%;max-height:100%;height:100%;margin:0 auto;padding:0;border:0;background:var(--paper);color:var(--ink)}
+dialog.case::backdrop{background:rgba(10,10,12,.72);backdrop-filter:blur(4px)}
+@media (min-width:900px){dialog.case{height:calc(100% - 48px);margin-top:24px;border-radius:20px}}
+.case-inner{height:100%;overflow-y:auto;overscroll-behavior:contain}
+.case-bar{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px max(16px,env(safe-area-inset-right,0px)) 12px max(16px,env(safe-area-inset-left,0px));padding-top:calc(12px + env(safe-area-inset-top,0px));background:var(--paper);border-bottom:1px solid var(--line)}
+.case-bar .crumbs{font-family:var(--f-mono);font-size:.78rem;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.case-bar .ctl{display:flex;gap:6px;flex-shrink:0}
+.icon-btn{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);display:grid;place-items:center;cursor:pointer;transition:border-color .2s}
+.icon-btn:hover{border-color:var(--ink)}
+.icon-btn svg{width:18px;height:18px}
+.case-body{padding:34px max(16px,env(safe-area-inset-right,0px)) 60px max(16px,env(safe-area-inset-left,0px));max-width:1080px;margin:0 auto}
+.case-hero{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:36px;align-items:end;margin-bottom:34px}
+.case-hero h2{font-size:clamp(2rem,5vw,3.4rem);font-weight:800;margin-top:10px}
+.facts{display:grid;grid-template-columns:auto 1fr;gap:8px 18px;font-size:.92rem;border-top:2px solid var(--ink);padding-top:14px}
+.facts dt{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding-top:3px}
+.facts dd{margin:0;font-weight:500}
+@media (max-width:760px){.case-hero{grid-template-columns:1fr}}
+
+.stage{background:var(--night);border-radius:18px;overflow:hidden;position:relative}
+.stage-main{display:grid;place-items:center;height:min(68vh,720px);padding:18px;position:relative}
+.stage-main img{max-height:calc(min(68vh,720px) - 36px);width:auto;max-width:100%;object-fit:contain;border-radius:6px;cursor:zoom-in;box-shadow:0 20px 50px -20px rgba(0,0,0,.8);transition:opacity .25s}
+.stage-main.wide-img img{width:100%;height:auto}
+.stage .nav-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:2;background:rgba(255,255,255,.92);border-color:transparent;color:#17181C}
+.stage .prev{left:12px}.stage .next{right:12px}
+.stage-cap{display:flex;justify-content:space-between;gap:12px;padding:12px 18px;color:var(--night-muted);font-size:.86rem;border-top:1px solid var(--night-line)}
+.stage-cap b{color:var(--night-ink);font-weight:600}
+.thumbs{display:flex;gap:10px;padding:0 18px 18px;overflow-x:auto}
+.thumbs button{flex-shrink:0;width:78px;height:78px;border-radius:10px;overflow:hidden;border:2px solid transparent;padding:0;background:#000;cursor:pointer;opacity:.55;transition:all .2s}
+.thumbs button img{width:100%;height:100%;object-fit:cover;object-position:top}
+.thumbs button.on{border-color:var(--accent);opacity:1}
+.stage-main video{max-height:calc(min(68vh,720px) - 36px);width:auto;max-width:100%;border-radius:6px;background:#000;box-shadow:0 20px 50px -20px rgba(0,0,0,.8)}
+.stage-main video[hidden],.stage-main img[hidden]{display:none}
+.thumbs button{position:relative}
+.thumbs button.is-vid::after{content:"";position:absolute;inset:50% auto auto 50%;width:28px;height:28px;margin:-14px 0 0 -14px;border-radius:50%;background:var(--accent) url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27%3E%3Cpath fill=%27white%27 d=%27M9 6.5v11l9-5.5z%27/%3E%3C/svg%3E") center/16px no-repeat;box-shadow:0 4px 12px rgba(0,0,0,.5)}
+
+.case-cols{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px;margin-top:40px}
+.case-cols h3{font-size:1.25rem;margin-bottom:10px}
+.case-cols p,.case-cols li{color:var(--muted)}
+.case-cols ul{margin:0;padding-left:18px;display:grid;gap:8px}
+@media (max-width:760px){.case-cols{grid-template-columns:1fr}}
+.deliv{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-top:36px}
+.deliv div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.deliv b{display:block;font-family:var(--f-display);font-size:1.05rem}
+.deliv small{color:var(--muted);font-size:.82rem}
+.palette{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
+.palette span{display:flex;align-items:center;gap:8px;font-family:var(--f-mono);font-size:.75rem;color:var(--muted)}
+.palette i{width:28px;height:28px;border-radius:8px;border:1px solid var(--line)}
+
+
+/* Ejemplos por servicio */
+.ex-grid.stack{grid-template-columns:1fr}
+.ex-strip{scrollbar-color:rgba(255,255,255,.5) transparent;display:flex;gap:14px;overflow-x:auto;padding:20px;background:color-mix(in srgb,var(--ec) 22%,var(--night));scroll-snap-type:x mandatory}
+.ex-strip .ex-img{flex:0 0 auto;width:auto;padding:0;background:transparent;display:flex;flex-direction:column;gap:8px;scroll-snap-align:start}
+.ex-strip .ex-img img{height:min(46vh,400px);width:auto;max-width:none}
+.ex-strip .ex-img.wide img{height:min(46vh,400px)}
+.ex-strip .ex-img span{font:500 .78rem var(--f-body);color:#fff;text-align:left;max-width:260px}
+@media (max-width:760px){.ex-strip .ex-img img{height:300px}.ex-strip .ex-img.wide img{height:180px}}
+.icon-btn[hidden]{display:none!important}
+.ex-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+.ex{background:var(--surface);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;min-width:0}
+.ex-img{display:block;border:0;padding:22px;background:color-mix(in srgb,var(--ec) 22%,var(--night));cursor:zoom-in;width:100%}
+.ex-img img{height:min(56vh,520px);width:auto;max-width:100%;margin:0 auto;object-fit:contain;border-radius:6px;box-shadow:0 18px 36px -16px rgba(0,0,0,.6);transition:transform .4s}
+.ex-img:hover img{transform:scale(1.02)}
+.ex-body{padding:22px;display:flex;flex-direction:column;gap:8px;flex:1}
+.ex-client{font-family:var(--f-mono);font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ec)}
+.ex-body h3{font-size:1.4rem}
+.ex-format{font-size:.85rem;color:var(--muted)}
+.ex-body p{color:var(--muted);font-size:.93rem;margin-top:4px}
+.ex-body p b{color:var(--ink)}
+.ex-body ul{margin:0;padding-left:18px;display:grid;gap:6px;color:var(--muted);font-size:.92rem}
+.ex-more{margin-top:auto;align-self:flex-start;font:600 .88rem var(--f-body);background:var(--ec);color:#fff;border:0;border-radius:999px;padding:.75em 1.2em;cursor:pointer}
+@media (max-width:760px){.ex-grid{grid-template-columns:1fr}.ex-img img{height:auto;max-height:70vh}}
+
+/* Device switch */
+.device{margin-top:6px}
+.seg{display:inline-flex;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:4px;gap:4px;margin-bottom:16px;flex-wrap:wrap}
+.seg button{font:500 .86rem var(--f-body);border:0;background:transparent;color:var(--muted);padding:.55em 1em;border-radius:999px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.dev-stage{background:linear-gradient(160deg,#E6EEF9,#FBE5EC);border-radius:18px;padding:28px 18px;display:grid;place-items:center;min-height:420px}
+.dev-desk{width:100%;max-width:900px;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 30px 60px -28px rgba(23,40,80,.5)}
+.dev-desk .bar{display:flex;align-items:center;gap:6px;padding:10px 12px;background:#EEF0F4}
+.dev-desk .bar i{width:10px;height:10px;border-radius:50%;background:#C9CDD6}
+.dev-desk .bar span{margin-left:12px;flex:1;background:#fff;border-radius:6px;font:12px var(--f-mono);color:#6B6F7A;padding:4px 10px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.dev-phone{width:280px;max-width:100%;border-radius:38px;background:#111;padding:12px;box-shadow:0 30px 60px -24px rgba(23,40,80,.55)}
+.dev-phone .scr{border-radius:28px;overflow:hidden;height:540px;overflow-y:auto;background:#fff}
+.dev-phone img{width:100%;height:auto}
+
+/* Lightbox */
+.zoom{position:fixed;inset:0;z-index:100;background:rgba(8,8,10,.94);overflow:auto;display:none;cursor:zoom-out;padding:env(safe-area-inset-top,0px) env(safe-area-inset-right,0px) env(safe-area-inset-bottom,0px) env(safe-area-inset-left,0px)}
+.zoom.on{display:block}
+.zoom img{margin:24px auto;max-width:none;width:min(1400px,100%)}
+.zoom .icon-btn{position:fixed;top:calc(14px + env(safe-area-inset-top,0px));right:calc(14px + env(safe-area-inset-right,0px));background:#fff;color:#17181C}
+
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
+</style>
+
+<div class="aura" aria-hidden="true"></div>
+<nav class="nav" aria-label="Principal">
+  <div class="wrap">
+    <a class="brand" href="#inicio" aria-label="Joaquín Cogollo · Inicio"><svg class="iso" viewBox="0 0 64 62" aria-hidden="true"><path d="M11 2h42a9 9 0 0 1 9 9v26a9 9 0 0 1-9 9H28L12 60l5-14h-6a9 9 0 0 1-9-9V11a9 9 0 0 1 9-9z" fill="#FF4D1C"/><text x="32" y="36.5" text-anchor="middle" font-family="Young Serif, Georgia, serif" font-size="32" fill="#14121F">J</text></svg><span class="brand-name">Joaqu<span class="ti">ı<i class="bub" aria-hidden="true"></i></span>n Cogollo</span></a>
+    <ul class="nav-links">
+      <li><a href="#sobre-mi">Sobre mí</a></li>
+      <li><a href="#trabajo">Trabajo</a></li>
+      <li><a href="#universidad">Universidad</a></li>
+      <li><a href="#proceso">Cómo trabajo</a></li>
+      <li><a href="#perfil">Perfil</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <a class="btn btn-accent nav-cta" href="#contacto">Hablemos</a>
+  </div>
+</nav>
+
+<header class="portada" id="inicio">
+  <div class="pt-in">
+    <div class="pt-top"><span><b>●</b> Publicidad &amp; Mercadeo</span><span>Bogotá D.C. · Colombia</span></div>
+    <h1 class="pt-word" aria-label="Portafolio"><span class="line"><span class="solid">PORTA</span></span><span class="line"><span class="outline">FOLIO</span><span class="dot">.</span></span></h1>
+    <div class="pt-bottom">
+      <div>
+        <p class="pt-name"><b>Joaquín Andrés</b>Cogollo González</p>
+        <p class="pt-role">Publicista y Mercadólogo · <em>diseño gráfico, identidad y piezas</em> que venden.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div class="pt-stats"><div><b>17</b><span>proyectos</span></div><div><b>8</b><span>marcas</span></div><div><b>8</b><span>servicios</span></div></div>
+        <div class="pt-cta"><a href="#trabajo">Ver proyectos ↓</a><a class="ghost" href="#sobre-mi">Conóceme</a></div>
+      </div>
+    </div>
+  </div>
+  <div class="pt-marquee" aria-hidden="true"><div class="pt-track"><span>Identidad corporativa</span><span>Piezas gráficas</span><span>Diseño editorial</span><span>Banners y gran formato</span><span>Photo wall banner</span><span>Aplicativos web</span><span>Tarjetas y stickers</span><span>Volantes</span><span>Material POP</span><span>Papelería corporativa</span><span>Videos corporativos</span><span>Identidad corporativa</span><span>Piezas gráficas</span><span>Diseño editorial</span><span>Banners y gran formato</span><span>Photo wall banner</span><span>Aplicativos web</span><span>Tarjetas y stickers</span><span>Volantes</span><span>Material POP</span><span>Papelería corporativa</span><span>Videos corporativos</span></div></div>
+</header>
+
+<section class="about" id="sobre-mi">
+  <div class="wrap">
+    <div class="about-text">
+      <div class="about-head">
+        <figure class="frame">
+          <div class="dots-deco" aria-hidden="true"></div>
+          <div class="frame-in">
+            <img src="img/joaquin-retrato-circ.webp" alt="Retrato de Joaquín Cogollo con camisa a rayas y corbata azul">
+            
+          </div>
+        </figure>
+        <div class="about-title">
+          <div class="eyebrow">Sobre mí</div>
+          <h2>Hola, soy <span class="hl">Joaquín</span></h2>
+          <p class="about-role">Publicista y mercadólogo. Hago
+            <span class="rot" aria-live="polite"><span class="on" style="--c:var(--coral)">identidad corporativa</span><span style="--c:var(--violet)">videos corporativos</span><span style="--c:var(--teal)">diseño editorial</span><span style="--c:var(--pink)">banners y volantes</span><span style="--c:var(--sky)">piezas gráficas</span><span style="--c:var(--sun)">gran formato</span><span style="--c:var(--coral)">photo walls</span><span style="--c:var(--violet)">aplicativos web</span></span></p>
+        </div>
+      </div>
+      <div class="about-body">
+      <p>Soy <strong>publicista y mercadólogo de la Fundación Universitaria San Martín</strong>. Me apasiona convertir un objetivo comercial en algo que la gente vea, entienda y quiera comprar: una identidad corporativa, papelería corporativa, material POP y publicitario, un catálogo, un volante o un banner.</p>
+      <p>Como <strong>consultor de publicidad y mercadeo en Mobeco</strong> planifiqué contenido y diseñé piezas gráficas para redes sociales. Antes trabajé en <strong>atención al usuario en el aeropuerto de Montería (AIRPLAN)</strong>, donde aprendí a escuchar lo que el cliente realmente necesita.</p>
+      <p>Hoy trabajo por proyecto con marcas como <strong>CF Gastrobar</strong> y el <strong>Gimnasio Rincón de los Ángeles</strong>: cartas, campañas de eventos, gran formato, videos y hasta aplicativos web que les ahorran trabajo en el día a día.</p>
+      </div>
+      <div class="about-facts">
+        <button class="fact-btn" type="button" id="edu-btn" aria-expanded="false" aria-controls="edu-panel"><small>Formación</small><b>Publicidad y Mercadeo, FUSM</b><span class="fact-more">Ver formación y certificados <i aria-hidden="true">▾</i></span></button>
+        <div><small>Enfoque</small><b>Diseño gráfico y contenido</b></div>
+        <div><small>Ciudad</small><b>Bogotá D.C., Colombia</b></div>
+      </div>
+      <div class="edu-panel" id="edu-panel" role="region" aria-labelledby="edu-btn"><div class="edu-inner">
+          <h3 class="col-title" style="font-size:1.2rem;margin-bottom:10px">Formación</h3>
+          <div class="edu">
+            <div><div><b>Publicidad y Mercadeo</b><span>Fundación Universitaria San Martín</span></div><time>Profesional</time></div>
+            <div><div><b>Asistencia Administrativa</b><span>SENA</span></div><time>2018</time></div>
+            <div><div><b>Informática y Redes</b><span>Tecnológico San Agustín, Montería</span></div><time>2016</time></div>
+          </div>
+          <div class="certs" style="margin-top:18px">
+            <span>Marketing Digital</span><span>Community Management y Analítica Web</span><span>Atención y Servicio al Cliente</span><span>Vitrinismo</span><span>Aplicación del Merchandising en Puntos de Venta</span><span>Administración Documental</span>
+          </div>
+          <div class="certs">
+            <span style="border-style:solid;color:var(--ink)">★ Buen Desempeño Académico · Congreso Internacional de Publicidad y Mercadeo 2024, FUSM</span>
+            <span style="border-style:solid;color:var(--ink)">★ Compromiso y Participación en Actividades de Formación, 2021</span>
+          </div>
+      </div></div>
+      <div class="hero-actions">
+        <a class="btn btn-accent" href="#trabajo">Ver proyectos
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg></a>
+        <a class="btn btn-ghost" href="#contacto">Contactar</a>
+      </div>
+    </div>
+  </div>
+</section>
+<main>
+<section class="block" id="trabajo">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow">Qué hago · Para quién</div>
+        <h2>Mi <span class="hl">trabajo</span></h2>
+      </div>
+      <p class="lead">Diseño piezas que comunican y venden: impresos, gran formato, redes sociales, videos y aplicativos web sencillos para el día a día del negocio. Elige un servicio para ver los proyectos donde lo apliqué.</p>
+    </div>
+    <div class="svc-bar">
+      <div class="svc-chips" role="group" aria-label="Filtrar por servicio" id="filters"></div>
+      <p class="svc-desc" id="svc-desc" aria-live="polite"></p>
+    </div>
+    <div class="groups" id="groups"></div>
+  </div>
+</section>
+
+<section class="block uni" id="universidad">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow">Fundación Universitaria San Martín · Publicidad y Mercadeo</div>
+        <h2>Trabajos <span class="hl">universitarios</span></h2>
+      </div>
+      <p class="lead">Cada semestre trabajamos con una empresa real en un proyecto integrador que une todas las materias: investigación, estrategia, creatividad y medios. Elige un semestre para leer qué hice en cada proyecto.</p>
+    </div>
+    <div class="uni-tabs" role="tablist" aria-label="Proyectos por semestre" id="uni-tabs"></div>
+    <div class="uni-panel" id="uni-panel" role="tabpanel" aria-live="polite"></div>
+  </div>
+</section>
+
+<section class="block dark" id="proceso">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow">Método</div>
+        <h2>Cómo <span class="hl">trabajo</span></h2>
+      </div>
+      <p class="lead">Cuatro pasos que se adaptan a cada encargo. Si el cliente me entrega todo el material, voy directo al diseño; si le falta información, primero investigo para construir la idea. Al final, piezas listas para usar. Toca cada paso para ver qué hago en él.</p>
+    </div>
+    <div class="steps-acc">
+      <ol class="acc" id="step-list"></ol>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="perfil">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow">Perfil profesional</div>
+        <h2><span class="hl">Trayectoria</span></h2>
+      </div>
+      <p class="lead">Diseño piezas que se ven en la calle, en la pantalla y en el celular, y las conecto para que una marca se reconozca y venda. Del banner al video, pensando siempre en quién lo va a ver.</p>
+    </div>
+    <div class="profile">
+      <div>
+        <h3 class="col-title">Experiencia</h3>
+        <ol class="timeline">
+          <li class="tl"><details open>
+            <summary><em>Freelance</em><strong>Diseño gráfico, video y piezas digitales por proyecto</strong><span>CF Gastrobar (Sahagún) · Gimnasio Rincón de los Ángeles (Bogotá)</span></summary>
+            <ul>
+              <li><b>CF Gastrobar:</b> carta impresa de doble cara y su versión animada para las pantallas de TV del local.</li>
+              <li>Campañas de eventos: Fiesta de Halloween (flyer, historias, banner vertical de 1 × 3 m y video “Últimos palcos”), difundida por medios locales como Sahagún en Línea y Noticias 180 Grados Caribe, y Noche de Cabalgatas.</li>
+              <li>Video corporativo del portafolio de servicios para eventos, banner de marca y photo wall para el local.</li>
+              <li>Aplicativos web de reservas de eventos por WhatsApp y de creación automática de la pieza del menú del día.</li>
+              <li>Tarjeta de presentación con QR y sticker de domicilios.</li>
+              <li><b>Gimnasio Rincón de los Ángeles:</b> campaña de matrículas 2027 para redes e impresión, volante de inscripciones y pendón de vacaciones recreativas de 70 × 120 cm.</li>
+              <li>Tres videos animados: inscripciones, rutas escolares y correo de agradecimiento a los padres por email marketing.</li>
+              <li>Armonización visual de documentos institucionales con el escudo del colegio.</li>
+            </ul>
+          </details></li>
+          <li class="tl"><details>
+            <summary><em>Mobeco S.A.S.</em><strong>Consultor de Publicidad y Mercadeo</strong><span>Contenido y piezas gráficas para redes</span></summary>
+            <ul>
+              <li>Planificación de contenido para redes sociales, alineado a los objetivos comerciales de la marca.</li>
+              <li>Diseño de piezas gráficas y publicaciones para redes sociales.</li>
+              <li>Redacción de textos publicitarios para las publicaciones.</li>
+              <li>Análisis de la competencia y del público para orientar el contenido.</li>
+              <li>Apoyo al cliente en la comunicación de su marca en canales digitales.</li>
+            </ul>
+          </details></li>
+          <li class="tl"><details>
+            <summary><em>AIRPLAN · Montería</em><strong>Atención al Usuario</strong><span>Sociedad Operadora de Aeropuertos Centro Norte</span></summary>
+            <ul>
+              <li>Atención, orientación e información a usuarios y pasajeros en las instalaciones aeroportuarias.</li>
+              <li>Recepción, gestión y seguimiento de solicitudes, quejas y PQRS.</li>
+              <li>Apoyo en la coordinación de procesos operativos de experiencia del usuario.</li>
+              <li>Protocolos de servicio al cliente y atención en punto con altos estándares de calidad.</li>
+              <li>Registro y administración documental de la atención al público.</li>
+            </ul>
+          </details></li>
+        </ol>
+
+        <div class="pub">
+          <div class="eyebrow">Publicación · 2024</div>
+          <p style="margin-top:8px"><b>Analysis of the perception and promotion of the D1 brand in Ciudad Bolívar, during 2024.</b> Palacios Martínez, E. C., Cogollo González, J. A., Bernal Jiménez, K. V. y García Rojas, M. <i>Management (Montevideo)</i>, vol. 2(94).</p>
+          <p style="margin-top:8px"><a href="https://doi.org/10.62486/agma202494" target="_blank" rel="noopener">doi.org/10.62486/agma202494</a></p>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:40px">
+        <div>
+          <h3 class="col-title">Habilidades</h3>
+          <div class="skills">
+            <span class="skill">Diseño gráfico publicitario</span>
+            <span class="skill">Diseño editorial (cartas y menús)</span>
+            <span class="skill">Gran formato: banners, pendones y photo walls</span>
+            <span class="skill">Piezas para redes sociales</span>
+            <span class="skill">Edición de video y animación</span>
+            <span class="skill">Campañas para eventos</span>
+            <span class="skill">Identidad y material POP</span>
+            <span class="skill">Redacción y copywriting</span>
+            <span class="skill">Email marketing</span>
+            <span class="skill">Atención al detalle</span>
+          </div>
+        </div>
+        <div>
+          <h3 class="col-title">Herramientas</h3>
+          <div class="tools-grid">
+            <div class="tool"><span class="tool-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 9v12"/></svg></span><div><b>Canva</b><small class="hi">Avanzado</small></div></div>
+            <div class="tool"><span class="tool-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg></span><div><b>Adobe Illustrator</b><small>Diseño vectorial</small></div></div>
+            <div class="tool"><span class="tool-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 16H3z"/><circle cx="12" cy="14" r="3"/></svg></span><div><b>Affinity</b><small>Diseño y edición</small></div></div>
+            <div class="tool"><span class="tool-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M3 7l3-4h4l-3 4M10 7l3-4h4l-3 4"/><path d="M10 11.5v5l4.5-2.5z"/></svg></span><div><b>CapCut Pro</b><small>Video para redes</small></div></div>
+            <div class="tool"><span class="tool-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18"/></svg></span><div><b>Excel</b><small>Básico</small></div></div>
+            <div class="tool tool-ai"><span class="tool-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.6L19.5 10l-5.6 1.9L12 17.5l-1.9-5.6L4.5 10l5.6-1.4z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg></span><div><b>Claude</b><small class="hi">Inteligencia artificial</small></div></div>
+          </div>
+        </div>
+</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<div class="pt-marquee alt" aria-hidden="true"><div class="pt-track"><span>Diseño gráfico</span><span>Diseño editorial</span><span>Banners</span><span>Photo wall banner</span><span>Aplicativos web</span><span>Volantes</span><span>Piezas para redes</span><span>Videos corporativos</span><span>Material POP</span><span>Diseño gráfico</span><span>Diseño editorial</span><span>Banners</span><span>Photo wall banner</span><span>Aplicativos web</span><span>Volantes</span><span>Piezas para redes</span><span>Videos corporativos</span><span>Material POP</span></div></div>
+<section class="dark contact" id="contacto">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Contacto</div>
+      <h2 style="margin-top:12px">¿Tu marca necesita <span class="hl">vender más</span>?</h2>
+      <p class="lead" style="margin-top:18px">Estoy disponible para vacantes en agencias y marcas, y para proyectos freelance de piezas gráficas, diseño editorial, banners y gran formato, photo walls, volantes, piezas para redes, videos corporativos y aplicativos web.</p>
+    </div>
+    <div class="c-list">
+      <div class="c-item"><div><small>Correo</small><b id="c-mail">joaquinco.marketing@gmail.com</b></div><button type="button" data-copy="c-mail">Copiar</button></div>
+      <div class="c-item"><div><small>Celular</small><b id="c-tel">310 603 5134</b></div><button type="button" data-copy="c-tel">Copiar</button></div>
+      <div class="c-item"><div><small>WhatsApp</small><b>+57 310 603 5134</b></div><a class="go" href="https://wa.me/573106035134" target="_blank" rel="noopener">Escribir</a></div>
+      <div class="c-item"><div><small>Ciudad</small><b>Bogotá D.C., Colombia</b></div></div>
+    </div>
+  </div>
+</section>
+</main>
+<footer><div class="wrap"><span class="ft-brand"><svg class="iso" viewBox="0 0 64 62" aria-hidden="true"><path d="M11 2h42a9 9 0 0 1 9 9v26a9 9 0 0 1-9 9H28L12 60l5-14h-6a9 9 0 0 1-9-9V11a9 9 0 0 1 9-9z" fill="#FF4D1C"/><text x="32" y="36.5" text-anchor="middle" font-family="Young Serif, Georgia, serif" font-size="32" fill="#14121F">J</text></svg><span class="logo logo-sm" role="img" aria-label="Joaquín Cogollo González"><span class="l1">Joaqu<span class="ti">ı<i class="bub" aria-hidden="true"></i></span>n</span><span class="l2">Cogollo González</span><span class="desc">Publicista &amp; Mercadólogo</span></span></span><span>Portafolio</span></div></footer>
+
+<dialog class="case" id="case" aria-labelledby="case-title">
+  <div class="case-inner" id="case-inner">
+    <div class="case-bar">
+      <span class="crumbs" id="case-crumbs"></span>
+      <div class="ctl">
+        <button class="icon-btn" type="button" id="case-prev" aria-label="Proyecto anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+        <button class="icon-btn" type="button" id="case-next" aria-label="Proyecto siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg></button>
+        <button class="icon-btn" type="button" id="case-close" aria-label="Cerrar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+      </div>
+    </div>
+    <div class="case-body" id="case-body"></div>
+  </div>
+</dialog>
+
+<div class="zoom" id="zoom" role="dialog" aria-label="Imagen ampliada"><button class="icon-btn" type="button" aria-label="Cerrar imagen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg></button><img id="zoom-img" alt=""></div>
+
+<script>
+const P = [
+  { id:"cf-carta", svc:["menus","video"], cats:["diseno"], size:"half", client:"CF Gastrobar", place:"Sahagún, Córdoba", year:"", role:"Freelance · Diseño editorial",
+    title:"Carta CF Gastrobar",
+    short:"Carta de doble cara para un gastrobar y su versión animada para las pantallas de TV del local: comidas rápidas, asados, cortes, pastas, bebidas y licores en un solo sistema visual.",
+    tags:["Diseño editorial","Menú impreso","Carta en video para TV"],
+    cover:`<div class="cover cv-cf"><img src="img/cf-carta-frente.webp" alt="Frente de la carta CF Gastrobar" loading="lazy"><img src="img/cf-carta-reverso.webp" alt="Reverso de la carta CF Gastrobar" loading="lazy"><img src="img/cf-carta-frente.webp" alt="" loading="lazy" style="object-fit:cover;object-position:0 62%;aspect-ratio:1056/1500"></div>`,
+    slides:[
+      {src:"img/cf-carta-frente.webp", t:"Frente", d:"Comidas rápidas y asados al carbón"},
+      {src:"img/cf-carta-reverso.webp", t:"Reverso", d:"Cortes, pastas, bebidas y licores"},
+      {src:"img/cf-video-carta-tv.webp", video:"vid/cf-carta-tv.mp4", t:"Video · Carta para pantallas de TV", d:"La carta animada en 16:9: cada sección entra con su precio para que el cliente la lea desde la mesa", wide:true}
+    ],
+    reto:"El gastrobar necesitaba una carta que se leyera rápido en mesa, que pusiera en primer plano sus platos de la casa y que sirviera también para domicilios y redes.",
+    hice:["Organicé el menú por momentos de consumo: frente para comidas rápidas y asados, reverso para cortes, pastas y barra.","Destaqué en dorado los platos insignia “CF” para guiar la elección hacia el ticket más alto.","Integré fotografía de producto con fundidos a negro para que cada sección se reconozca de un vistazo.","Cerré con una franja de domicilios, Instagram y medios de pago (Nequi y Bancolombia) para facilitar la compra.","Llevé la carta a las pantallas del local con un video horizontal que recorre las secciones en bucle, con el WhatsApp de domicilios siempre visible."],
+    deliv:[["8 artes","Vertical y horizontal, frente y reverso"],["2 versiones","Con precios y sin precios"],["Carta en video","Animación 16:9 para pantallas de TV"],["1 sistema","Tipografía Cinzel + Lora, paleta negro y oro"]],
+    palette:["#070605","#100D0A","#F5B544","#F3E9D7"] },
+
+  { id:"cf-halloween", svc:["redes","banners","volantes","video"], cats:["diseno","campanas"], size:"half", client:"CF Gastrobar", place:"Sahagún, Córdoba", year:"", role:"Freelance · Campaña de evento",
+    title:"Fiesta de Halloween CF",
+    short:"Campaña para vender palcos y zona VIP de una noche con presentación en vivo, del flyer al banner de calle.",
+    tags:["Campaña","Impreso gran formato","Difundida en medios locales"],
+    cover:`<div class="cover cv-hw"><img src="img/cf-flyer.webp" alt="Flyer Fiesta de Halloween" loading="lazy"><img src="img/cf-promo-palcos.webp" alt="Historia promoción de palcos" loading="lazy"></div>`,
+    slides:[
+      {src:"img/cf-flyer.webp", t:"Flyer media carta", d:"Mapa de palcos, precios y reservas en una sola pieza"},
+      {src:"img/cf-promo-palcos.webp", t:"Historia “Solo por 2 días”", d:"Preventa del 15 y 16 de octubre: abono del 30 % y botella de regalo"},
+      {src:"img/cf-promo-claro.webp", t:"Historia versión clara", d:"Misma oferta en fondo claro para alternar en redes"},
+      {src:"img/cf-video-palcos.webp", video:"vid/cf-ultimos-palcos.mp4", t:"Video · Últimos palcos", d:"Historia animada con música: cuenta los palcos que quedan, presenta a los artistas y cierra con el llamado a reservar"},
+      {src:"img/cf-banner-vertical.webp", t:"Banner vertical 1 × 3 m", d:"Pieza de calle con los artistas, la fecha, los palcos y el contacto para reservas"},
+      {src:"img/cf-banner-instalado.webp", t:"El banner ya instalado", d:"Impreso y colgado en la calle de Sahagún para anunciar el evento"},
+      {src:"img/cf-video-1.webp", video:"vid/cf-halloween-1.mp4", t:"Video · El banner en uso", d:"Historia de Instagram donde el banner sirve de fondo para promocionar el evento"},
+      {src:"img/cf-video-2.webp", video:"vid/cf-halloween-2.mp4", t:"Video · Los artistas invitan", d:"Historias con los artistas y la línea gráfica de la campaña, compartidas por medios locales"},
+      {src:"img/cf-medios-sahagunenlinea.webp", t:"En medios · Sahagún en Línea", d:"Video de la campaña publicado en colaboración con CF Gastrobar por el medio local Sahagún en Línea"},
+      {src:"img/cf-medios-180grados.webp", t:"En medios · Noticias 180 Grados Caribe", d:"El flyer con el mapa de palcos publicado por el portal de noticias regional Noticias 180 Grados Caribe"}
+    ],
+    reto:"Llenar los palcos oro, plata y la zona VIP para el 31 de octubre, con dos artistas en vivo y un plazo corto de venta.",
+    hice:["Convertí el plano del lugar en un mapa de palcos legible, para que el cliente elija y reserve desde el flyer.","Planteé una preventa de dos días con incentivo (abono del 30 % y botella de regalo) para adelantar el flujo de caja.","Adapté la pieza a cada punto de contacto: historia vertical, flyer impreso y banner vertical de 1 × 3 m para la calle.","Animé un video vertical de “Últimos palcos” con música, que muestra en tiempo real los palcos disponibles para crear urgencia en la recta final.","La campaña llegó más allá de las redes del cliente: medios locales como Sahagún en Línea y Noticias 180 Grados Caribe publicaron el video y el flyer.","Seguí la pieza hasta la calle: el banner quedó instalado y se usó como fondo en las historias del evento.","Dejé el llamado a la acción repetido en todas las piezas: dos líneas de reservas y la dirección."],
+    deliv:[["Flyer","Media carta, 5,5 × 8,5 in"],["2 historias","1080 × 1920, fondo oscuro y claro"],["Video animado","Historia vertical de 18 s con música"],["Banner vertical","1 × 3 m para la calle"]],
+    palette:["#0B0605","#6A0503","#D9443A","#F5B544","#F3E9D7"] },
+
+  { id:"cf-cabalgatas", svc:["redes","volantes"], cats:["diseno"], size:"half", client:"CF Gastrobar", place:"Sahagún, Córdoba", year:"", role:"Freelance · Pieza de evento",
+    title:"Noche de Cabalgatas",
+    short:"Flyer para una noche de música en vivo con la Sensación Banda de Colomboy, con el ambiente de fiesta de pueblo que pide la temporada de cabalgatas.",
+    tags:["Flyer de evento","Redes sociales","Música en vivo"],
+    cover:`<div class="cover"><img src="img/cf-cabalgatas.webp" alt="Flyer Noche de Cabalgatas en CF Gastrobar" loading="lazy" style="object-position:50% 0"></div>`,
+    slides:[
+      {src:"img/cf-cabalgatas.webp", t:"Flyer “¡Gózate esta Noche de Cabalgatas!”", d:"La banda en tarima como protagonista, con el sombrero vueltiao, el caballo y la trompeta como guiños a la fiesta sabanera"}
+    ],
+    reto:"Anunciar una noche con banda en vivo durante la temporada de cabalgatas y que la pieza se sintiera de fiesta sin perder la marca del gastrobar.",
+    hice:["Usé la foto real de la banda en tarima para que el público reconozca a quién va a ver.","Armé la jerarquía con letreros de madera y letra pincel dorada: banda, evento, lugar y hora, en ese orden.","Sumé elementos de la cultura sabanera (sombrero vueltiao, caballo, trompeta y luces de feria) para conectar con la temporada.","Mantuve el logo de CF Gastrobar y el horario visibles para cerrar con la invitación."],
+    deliv:[["Flyer","Formato 4:5 para redes y WhatsApp"]],
+    palette:["#0E0B07","#5A3418","#C98A1F","#F5C542","#FFF4D6"] },
+
+  { id:"cf-servicios-video", svc:["video"], cats:["diseno"], size:"half", client:"CF Gastrobar", place:"Sahagún, Córdoba", year:"", role:"Freelance · Video corporativo",
+    title:"Portafolio de servicios para eventos",
+    short:"Video horizontal que presenta el gastrobar como espacio para eventos sociales y empresariales, con su propuesta: el espacio sin costo de alquiler.",
+    tags:["Video corporativo","Motion graphics","16:9"],
+    cover:`<div class="cover"><img src="img/cf-video-servicios.webp" alt="Video portafolio de servicios CF Gastrobar" loading="lazy"></div>`,
+    slides:[
+      {src:"img/cf-video-servicios.webp", video:"vid/cf-portafolio-servicios.mp4", t:"Video · Portafolio de servicios", d:"Presentación animada con música: el local, la pregunta “¿Tienes un evento en mente?” y los beneficios en cifras", wide:true}
+    ],
+    reto:"Contar en poco más de un minuto que CF Gastrobar presta su espacio para eventos y que el cliente solo paga lo que consume de la carta.",
+    hice:["Estructuré el video como una conversación: una pregunta que engancha, la solución y los beneficios.","Animé la oferta principal en cifras ($0 de alquiler, 100 % consumo de la carta, más de 8 tipos de evento) para que se entienda sin sonido.","Usé la fachada real del local y la paleta verde y dorada de la marca en todas las escenas.","Lo entregué en 16:9 para pantallas, presentaciones y redes, con el número de reservas en pantalla."],
+    deliv:[["Video","Horizontal 16:9, 1 min 18 s, con música"]],
+    palette:["#0A2A26","#14463E","#C98A1F","#ECB038","#F6EFE2"] },
+
+  { id:"cf-apps", svc:["apps"], cats:["diseno"], size:"wide", client:"CF Gastrobar", place:"Sahagún, Córdoba", year:"", role:"Freelance · Aplicativos web",
+    title:"Aplicativos de reservas y menú del día",
+    short:"Dos herramientas web hechas a la medida del gastrobar: una para que los clientes reserven el espacio de su evento por WhatsApp y otra para que el equipo cree cada día la pieza del menú en minutos.",
+    tags:["Aplicativo web","Reservas","Automatización de piezas"],
+    cover:`<div class="cover cv-app"><img class="ph" src="img/cf-app-reservas.webp" alt="Aplicativo de reservas CF Gastrobar" loading="lazy"><img class="dk" src="img/cf-app-menu-panel.webp" alt="Panel del menú del día" loading="lazy"><img class="ph" src="img/cf-app-menu-pieza.webp" alt="Pieza del menú del día generada" loading="lazy"></div>`,
+    slides:[
+      {src:"img/cf-app-reservas.webp", t:"Reservas · Inicio", d:"La propuesta clara desde el primer vistazo: espacio sin costo de alquiler para eventos sociales y empresariales"},
+      {src:"img/cf-app-reservas-pedido.webp", t:"Reservas · Pedido anticipado", d:"El cliente deja la comida lista: elige platos de la carta con cantidades y ve el total y el abono del 50 %"},
+      {src:"img/cf-app-menu-panel.webp", t:"Menú del día · Panel del equipo", d:"Se marcan los platos de hoy, los precios y el destacado; la pieza se actualiza al instante", wide:true},
+      {src:"img/cf-app-menu-pieza.webp", t:"Menú del día · Pieza generada", d:"Imagen vertical 9:16 lista para estados de WhatsApp, con foto, precios y el número de domicilios"}
+    ],
+    reto:"El gastrobar recibía las reservas de eventos por mensajes sueltos y armaba el menú del día a mano cada mañana. Necesitaba ordenar las dos cosas sin depender de un diseñador todos los días.",
+    hice:["Reservas: diseñé un formulario por pasos (tipo de evento, fecha y hora, personas, decoración y datos) que arma el mensaje completo y lo envía al WhatsApp de reservas con un código.","Sumé el pedido anticipado con la carta, cantidades, total, abono del 50 %, condiciones de cancelación y datos de pago.","Menú del día: creé un panel donde el equipo marca los platos de hoy, ajusta precios, elige el plato destacado, la foto y el fondo.","El panel genera la pieza 9:16 con la identidad de la marca y copia el texto para WhatsApp; la carta queda guardada en línea y el acceso es con usuario y clave."],
+    deliv:[["Aplicativo de reservas","Web, adaptado a celular"],["Aplicativo de menú del día","Panel + pieza 9:16 automática"]],
+    palette:["#08262B","#0D3A33","#2BB3A3","#ECB038","#F6EFE2"] },
+
+  { id:"cf-marca-local", svc:["banners","photowall"], cats:["diseno"], size:"wide", client:"CF Gastrobar", place:"Sahagún, Córdoba", year:"", role:"Freelance · Gran formato",
+    title:"Banner de marca y photo wall",
+    short:"Dos piezas de gran formato para el local: un banner que muestra la comida y los cócteles de la casa, y un photo wall para que los clientes se lleven la marca en cada foto.",
+    tags:["Gran formato","Photo wall","Identidad en el punto de venta"],
+    cover:`<div class="cover cv-pw"><img class="pw" src="img/cf-photowall.webp" alt="Photo wall CF Gastrobar" loading="lazy"><img class="bn" src="img/cf-banner-marca.webp" alt="Banner de marca CF Gastrobar" loading="lazy"></div>`,
+    slides:[
+      {src:"img/cf-banner-marca.webp", t:"Banner de marca", d:"Platos y cócteles reales del menú con el logo al centro y el lema “Tradición, sabor y buenos momentos en un solo lugar”", wide:true},
+      {src:"img/cf-photowall.webp", t:"Photo wall banner", d:"Fondo para fotos con el logo al centro, patrón de hojas y frases de la marca para compartir en redes"}
+    ],
+    reto:"Llevar la identidad de CF Gastrobar al espacio físico: que la marca se vea desde la entrada y que también viaje en las fotos que los clientes publican.",
+    hice:["Armé el banner con fotos reales de los platos y cócteles de la casa, oscurecidas para que el logo dorado y el lema resalten al centro.","Diseñé el photo wall con el logo como protagonista, un patrón suave de las hojas del isotipo y un marco dorado.","Escribí frases cortas de la marca (“Aquí todos somos familia”, “La mesa que nos une”) para que cualquier encuadre de la foto lleve un mensaje.","Incluí el llamado “Comparte tu foto @CF_GASTROBAR” para convertir cada foto en publicidad gratuita en redes."],
+    deliv:[["Banner de marca","Formato panorámico para el local"],["Photo wall","Formato cuadrado para fondo de fotos"]],
+    palette:["#0D0A06","#8A5A14","#C99A3D","#E8B04A","#F6EBD3"] },
+
+  { id:"rincon-piezas", svc:["redes","banners"], cats:["diseno","campanas"], size:"half", client:"Gimnasio Rincón de los Ángeles", place:"Kennedy, Bogotá", year:"", role:"Freelance · Piezas gráficas",
+    title:"Campaña de matrículas",
+    short:"Afiches, posts y banners para la temporada de inscripciones, pensados para redes sociales y para impresión.",
+    tags:["Piezas gráficas","Redes sociales","Impresión"],
+    cover:`<div class="cover cv-pz"><img src="img/rincon-afiche-inscripciones.webp" alt="Afiche Inscripciones abiertas 2027" loading="lazy"><img src="img/rincon-vuelta-colegio.webp" alt="Pieza De vuelta al colegio" loading="lazy"><img class="hz" src="img/rincon-banner-matriculas.webp" alt="Banner Matrículas abiertas" loading="lazy"></div>`,
+    slides:[
+      {src:"img/rincon-afiche-inscripciones.webp", t:"Afiche Inscripciones abiertas 2027", d:"Formato vertical para imprimir y publicar: beneficios, dirección, formulario y contactos"},
+      {src:"img/rincon-vuelta-colegio.webp", t:"De vuelta al colegio", d:"Pieza de bienvenida con lettering ilustrado y llamado a la acción"},
+      {src:"img/rincon-banner-matriculas.webp", t:"Banner Matrículas abiertas", d:"Formato horizontal para portada de redes y pendón, en los colores del uniforme", wide:true},
+      {src:"img/rincon-banner-inscripciones.webp", t:"Banner Inscripciones abiertas", d:"Versión institucional con la fachada real del colegio", wide:true}
+    ],
+    reto:"El colegio necesitaba atraer nuevas familias para 2027 con piezas que funcionaran igual de bien en Instagram y Facebook que impresas en volantes, afiches y pendones.",
+    hice:["Diseñé una familia de piezas con mensajes distintos: inscripciones, bienvenida de regreso a clases y matrículas abiertas.","Usé personajes infantiles con el uniforme del colegio y la fachada real para que los padres lo reconocieran de inmediato.","Repetí en todas las piezas los mismos datos de contacto: teléfonos, dirección en Kennedy y formulario de inscripción.","Preparé formatos verticales para afiche y redes, y horizontales para portada y pendón."],
+    deliv:[["2 verticales","Afiche y post, listos para imprimir"],["2 banners","Formato horizontal para redes y pendón"],["1 mensaje","Datos de contacto unificados en todas las piezas"]],
+    palette:["#FCD889","#2E5B3C","#1747C8","#FFC83D","#F04E23"] },
+
+  { id:"rincon-vacaciones", svc:["banners"], cats:["diseno"], size:"half", client:"Gimnasio Rincón de los Ángeles", place:"Kennedy, Bogotá", year:"", role:"Freelance · Gran formato",
+    title:"Vacaciones recreativas de verano",
+    short:"Pendón de 70 × 120 cm para anunciar el plan de vacaciones del colegio: actividades por categoría, cierre de temporada y contacto para separar cupo.",
+    tags:["Pendón","Impreso gran formato","Público familiar"],
+    cover:`<div class="cover cv-vac"><img src="img/rincon-vacaciones.webp" alt="Pendón Vacaciones recreativas de verano" loading="lazy"></div>`,
+    slides:[
+      {src:"img/rincon-vacaciones.webp", t:"Pendón 70 × 120 cm", d:"Tres columnas de actividades, cierre de temporada, espacio para fechas y horarios, WhatsApp y dirección"}
+    ],
+    reto:"Contarles a los padres todo lo que incluye el plan de vacaciones en una sola pieza que se lea desde la entrada del colegio y les dé ganas a los niños.",
+    hice:["Puse a dos niños con la sudadera del colegio como protagonistas para que las familias se identifiquen de inmediato.","Ordené las actividades en tres columnas de color (artísticas, recreativas especiales y juegos de integración) con un ícono para cada una.","Reservé una franja para las actividades de cierre y un recuadro para fechas y horarios.","Destaqué el WhatsApp para separar cupo y dejé el teléfono y la dirección al pie."],
+    deliv:[["Pendón","70 × 120 cm, listo para imprimir"]],
+    palette:["#1E7A3C","#7B3FA0","#E83E8C","#2F8FD8","#F9C823"] },
+
+  { id:"rincon-videos", svc:["video"], cats:["diseno","campanas"], size:"half", client:"Gimnasio Rincón de los Ángeles", place:"Kennedy, Bogotá", year:"", role:"Freelance · Video animado",
+    title:"Videos de inscripciones, rutas y correo",
+    short:"Tres videos verticales animados para la temporada 2027: inscripciones abiertas, rutas escolares y un mensaje de agradecimiento para enviar a los padres por email marketing.",
+    tags:["Video animado","Email marketing","Código QR"],
+    cover:`<div class="cover cv-vid3"><img src="img/rincon-video-inscripciones.webp" alt="Video inscripciones 2027" loading="lazy"><img src="img/rincon-video-rutas.webp" alt="Video rutas escolares" loading="lazy"><img src="img/rincon-video-correo.webp" alt="Video para correo a padres" loading="lazy"></div>`,
+    slides:[
+      {src:"img/rincon-video-inscripciones.webp", video:"vid/rincon-inscripciones.mp4", t:"Video · Inscripciones abiertas 2027", d:"Anuncia preescolar y primaria, muestra cómo llegar con un mapa y un QR a Google Maps, y cierra con fotos del colegio"},
+      {src:"img/rincon-video-rutas.webp", video:"vid/rincon-rutas.mp4", t:"Video · Ruta escolar", d:"Responde la preocupación de los padres con el bus del colegio y el recorrido animado por los barrios que cubre la ruta"},
+      {src:"img/rincon-video-correo.webp", video:"vid/rincon-correo.mp4", t:"Video · Correo para los padres", d:"Agradece la confianza de las familias, recuerda los años del colegio en el barrio e invita a las inscripciones 2027"}
+    ],
+    reto:"Llegar a las familias actuales y a las nuevas con mensajes distintos: matrículas, transporte y fidelización, todos con la misma identidad del colegio.",
+    hice:["Creé un estilo ilustrado común (cielo, nubes, colinas y niños con el uniforme) para que los tres videos se reconozcan como una sola campaña.","Inscripciones: animé el anuncio del 2027 y la dirección paso a paso sobre un mapa, con un QR para abrir la ruta en Google Maps.","Rutas escolares: empecé con la pregunta que se hacen los padres y la respondí con el bus recorriendo los barrios de la ruta.","Correo: escribí una carta de agradecimiento a las familias para enviarla por email marketing, con el llamado a inscribir hermanos y conocidos."],
+    deliv:[["3 videos","Verticales 9:16 con música"],["Email marketing","Video para difusión por correo a los padres"]],
+    palette:["#5BC0EB","#3DAE49","#F7B32B","#E4572E","#1E7A3C"] },
+
+  { id:"rincon-volante", svc:["volantes"], cats:["diseno"], size:"half", client:"Gimnasio Rincón de los Ángeles", place:"Kennedy, Bogotá", year:"", role:"Freelance · Volante impreso",
+    title:"Volante de inscripciones",
+    short:"Volante media carta para repartir en el barrio, con los servicios del colegio, mapa, código QR y contactos.",
+    tags:["Volante","Impresión","Media carta"],
+    cover:`<div class="cover cv-vol"><img src="img/rincon-volante.webp" alt="Volante Inscripciones abiertas del Gimnasio Rincón de los Ángeles" loading="lazy"><div class="vol-txt"><b>2.000</b><span>volantes media carta</span></div></div>`,
+    slides:[
+      {src:"img/rincon-volante.webp", t:"Volante Inscripciones abiertas", d:"Media carta, tiraje de 2.000 unidades"}
+    ],
+    reto:"Llegar a las familias del sector con una pieza física que mostrara en un vistazo todo lo que ofrece el colegio y cómo inscribirse.",
+    hice:["Organicé los once servicios del colegio en una lista de chequeo fácil de leer: banda marcial, inglés intensivo, ruta, psicología, terapias, escuela deportiva y restaurante.","Incluí la aprobación oficial de la Secretaría de Educación para dar confianza a los padres.","Agregué el mapa de la sede y un código QR para pasar del papel al formulario de inscripción.","Cerré con un llamado a la acción grande y todos los canales: WhatsApp, teléfono fijo, Instagram, Facebook, correo y web."],
+    deliv:[["Media carta","Formato listo para imprenta"],["2.000","Volantes en el tiraje"],["QR + mapa","Del volante al formulario"]],
+    palette:["#1747C8","#FFC83D","#FFFFFF","#E8332A"] },
+
+  { id:"cf-tarjeta", svc:["pop"], cats:["diseno"], size:"wide", client:"CF Gastrobar", place:"Sahagún, Córdoba", year:"", role:"Freelance · Material POP",
+    title:"Tarjeta y sticker CF Gastrobar",
+    short:"Tarjeta de presentación con código QR a la carta y sticker de domicilios para los empaques de comida.",
+    tags:["Tarjeta de presentación","Sticker","Impresión"],
+    cover:`<div class="cover cv-photo"><img src="img/pop/cf-mockup-tarjeta.webp" alt="Mockup de la tarjeta de CF Gastrobar" loading="lazy"></div>`,
+    slides:[
+      {src:"img/pop/cf-mockup-tarjeta.webp", t:"Mockup de la tarjeta", d:"Frente y reverso sobre madera, como se entrega en el local", wide:true},
+      {src:"img/pop/cf-tarjeta-frente.webp", t:"Tarjeta · frente", d:"Cocina & Bar, fotos de producto y la propuesta: comida, tragos y música en vivo", wide:true},
+      {src:"img/pop/cf-tarjeta-reverso.webp", t:"Tarjeta · reverso", d:"QR a la carta, domicilios, reservas, dirección e Instagram", wide:true},
+      {src:"img/pop/cf-sticker.webp", t:"Sticker circular 5 × 5 cm", d:"Número de domicilios para sellar los empaques"},
+      {src:"img/pop/cf-mockup-sticker.webp", t:"Mockup del sticker", d:"Aplicado sobre una caja de comida para llevar", wide:true}
+    ],
+    reto:"El gastrobar necesitaba piezas pequeñas que viajaran con el cliente y lo trajeran de vuelta: una tarjeta para entregar en mesa y un sello para cada pedido a domicilio.",
+    hice:["Diseñé el frente con la textura de ladrillo del local, el logo y fotos reales de los platos para que la tarjeta abra el apetito.","Puse en el reverso un código QR que lleva directo a la carta, más domicilios, reservas, dirección e Instagram.","Creé un sticker circular de 5 × 5 cm con el número de domicilios para sellar cada empaque y convertir cada pedido en publicidad.","Mantuve la misma paleta negro y oro de la carta y la campaña de Halloween."],
+    deliv:[["Tarjeta","Frente y reverso con QR"],["Sticker","Circular 5 × 5 cm"],["2 mockups","Tarjeta y empaque"]],
+    palette:["#0E0B08","#F5B544","#F3E9D7","#6B5A45"] },
+
+  { id:"jc-marca", svc:["pop"], cats:["diseno"], size:"wide", client:"Joaquín Cogollo", place:"Marca personal", year:"", role:"Identidad personal · Material POP",
+    title:"Tarjeta y stickers de mi marca",
+    short:"Aplicación de mi identidad personal en tarjeta de presentación y una plancha de stickers.",
+    tags:["Marca personal","Tarjeta de presentación","Stickers"],
+    cover:`<div class="cover cv-photo"><img src="img/pop/jc-mockup.webp" alt="Mockup de la tarjeta y stickers de Joaquín Cogollo" loading="lazy"></div>`,
+    slides:[
+      {src:"img/pop/jc-mockup.webp", t:"Mockup de tarjeta y stickers", d:"Frente, reverso y dos stickers de la marca", wide:true},
+      {src:"img/pop/jc-tarjeta-frente.webp", t:"Tarjeta · frente", d:"Logotipo en negativo sobre Tinta, con la burbuja como única nota de color", wide:true},
+      {src:"img/pop/jc-tarjeta-reverso.webp", t:"Tarjeta · reverso", d:"Nombre completo, isotipo y datos de contacto", wide:true},
+      {src:"img/pop/jc-stickers.webp", t:"Plancha de stickers A4", d:"Circulares, troquelados en forma de burbuja y rectangulares"}
+    ],
+    reto:"Llevar mi identidad personal a piezas físicas que pudiera entregar en una entrevista, una feria o una reunión con un cliente.",
+    hice:["Apliqué el logotipo con la burbuja de diálogo en la tilde: la marca dice que soy publicista sin explicarlo.","Diseñé la tarjeta de 9 × 5,5 cm con frente oscuro y reverso claro, siguiendo la proporción de color del manual: papel, tinta y un toque de naranja.","Armé una plancha de stickers A4 con versiones circulares, troqueladas en forma de burbuja y rectangulares con datos de contacto.","Respeté el área de protección, el tamaño mínimo y las tipografías de la marca: Young Serif y Space Grotesk."],
+    deliv:[["Tarjeta","9 × 5,5 cm, frente y reverso"],["Plancha A4","Stickers en 3 formatos"],["Manual de marca","Base de todas las piezas"]],
+    palette:["#14121F","#FF4D1C","#F3F1EC","#55525E"] },
+
+  { id:"uni-seguridad", cats:["universidad"], uni:true, sem:"III semestre", year:"2022", color:"#1E8C7E",
+    client:"Seguridad Activa S.A.S.", place:"Propiedad horizontal · Bogotá", role:"Proyecto integrador · III semestre",
+    title:"¡Con toda propiedad!", concept:"¡Con toda propiedad!",
+    short:"Propuesta de marketing y publicidad para una empresa de servicios a propiedad horizontal: cliente ideal, concepto creativo, piezas, marca propia y brochure.",
+    tags:["Buyer persona","Segmentación","Concepto creativo","Piezas para historias"],
+    team:"Equipo de 6 estudiantes",
+    slides:[],
+    reto:"Encontrar el cliente ideal de Seguridad Activa y mejorar su propuesta comercial frente a la competencia del sector de propiedad horizontal.",
+    hice:["Construimos el buyer persona y segmentamos el mercado: conjuntos residenciales y edificios de estratos 1 y 2 en Facatativá, Madrid, Funza y Soacha.","Hicimos benchmarking de la categoría de servicios a propiedad horizontal.","Creamos el concepto ¡Con toda propiedad!, una metáfora que juega con el doble sentido de “propiedad”: el inmueble y la seguridad de hacer las cosas bien.","Diseñamos una serie de historias para redes, una por línea de servicio, y una versión en inglés.","Propusimos Power Clean, una marca propia de productos de aseo, y un brochure con todos los servicios.","Produjimos un spot audiovisual para posicionar la empresa."],
+    deliv:[["7 historias","1080 × 1920 por línea de servicio"],["1 marca propia","Power Clean, productos de aseo"],["Brochure + spot","Para la fuerza comercial y redes"]],
+    palette:["#1E8C7E","#9BCBD8","#C9B8DA","#1F2430"] },
+
+  { id:"uni-ram4", cats:["universidad"], uni:true, sem:"IV semestre", year:"2023", color:"#2B5DB0",
+    client:"Espumas Santafé · Ramguiflex", place:"Colchones · Bogotá", role:"Proyecto integrador · IV semestre",
+    title:"Diagnóstico y propuesta Ramguiflex", concept:"Un buen descanso para construir tus sueños",
+    short:"Investigación de punto de venta, análisis estadístico de ventas y propuesta de comunicación para la marca de colchones Ramguiflex.",
+    tags:["Mystery shopper","DOFA","Análisis estadístico","BTL"],
+    team:"Equipo de 6 estudiantes",
+    slides:[],
+    reto:"Ramguiflex tenía un problema de recordación de marca y puntos de venta poco visibles. Había que entender por qué y proponer cómo mejorar.",
+    hice:["Hicimos mystery shopper en el punto de venta directo, en distribuidores y por teléfono, y lo resumimos en matrices DOFA.","Estudiamos seis marcas competidoras de colchones con visitas de campo para construir un estilo publicitario propio.","Analizamos la base de ventas 2021 y 2022 de colchones sencillos y semidobles por localidades de Bogotá para enfocar esfuerzos.","Diagnosticamos la comunicación ATL, BTL y digital de la marca.","Propusimos piezas de oferta, una línea para adultos mayores, convenios con academias de moda y un BTL sensorial en centros comerciales."],
+    deliv:[["Mystery shopper","Punto directo, distribuidor y llamada"],["Análisis de ventas","2021–2022 por localidades"],["Propuesta creativa","Piezas, convenios y BTL"]],
+    palette:["#2B5DB0","#7DBB42","#B9C9E4","#FFFFFF"] },
+
+  { id:"uni-lira", cats:["universidad"], uni:true, sem:"VI semestre", year:"2024", color:"#E3A400",
+    client:"LIRA Ltda.", place:"Lubricantes industriales · Ciudad Bolívar, Bogotá", role:"Proyecto integrador · VI semestre",
+    title:"Sostenibles con LIRA", concept:"Sé parte de la solución, no parte de la contaminación",
+    short:"Estrategia de marca con enfoque ambiental para una distribuidora de lubricantes: investigación, manual de uso para clientes y campaña en redes.",
+    tags:["Entrevistas a profundidad","Manual de uso","Campaña ambiental","Redes sociales"],
+    team:"Equipo de 6 estudiantes",
+    slides:[],
+    reto:"LIRA tenía poca presencia digital y ningún mensaje sobre el impacto ambiental de los lubricantes que distribuye.",
+    hice:["Entrevistamos a un ingeniero químico, a un profesor de química y al propietario de la empresa.","Mapeamos campañas de fundaciones sobre reciclaje de aceites para tomar referentes.","Diseñamos un manual de uso digital con precauciones, tipos de lubricantes, productos y disposición responsable.","Planteamos un kit de campaña ambiental para colegios y fundaciones de Ciudad Bolívar, y una campaña en redes con nueva línea gráfica.","Propusimos un experimento en vivo con agua, aceite y colorante para mostrar la contaminación."],
+    deliv:[["Manual de uso","Digital, 10 páginas"],["Campaña ambiental","Kit para colegios y fundaciones"],["Línea gráfica","Para redes y página web"]],
+    palette:["#F5C400","#1F2430","#FFFFFF","#3E8E2F"] },
+
+  { id:"uni-magic", cats:["universidad"], uni:true, sem:"VIII semestre", year:"", color:"#F28C18",
+    client:"Magic Eventos", place:"Eventos sociales", role:"Proyecto integrador · VIII semestre",
+    title:"Magic Eventos × Trendy", concept:"Creando historias, no solo momentos",
+    short:"Identidad gráfica para una empresa de eventos y alianza de cobranding con una marca de maquillaje para fiestas de 15 años.",
+    tags:["Identidad gráfica","Cobranding","Contenido","Propuesta web"],
+    team:"Equipo de 3 estudiantes",
+    slides:[],
+    reto:"Dar a Magic Eventos una identidad coherente y una idea que la diferenciara en el mercado de fiestas de 15 años.",
+    hice:["Desarrollé con el equipo el manual de identificador gráfico: logo, retícula, tamaños mínimos, paleta, tipografías y usos correctos e incorrectos.","Planteamos una alianza con Trendy, marca colombiana de maquillaje juvenil, con paquetes exclusivos para quinceañeras.","Estructuramos el contenido en tres fases: la previa (expectativa), la fiesta (cobertura y estación de maquillaje) y el after (testimonios).","Definimos canales (Instagram, Facebook, TikTok, YouTube y web) y el presupuesto del cobranding.","Propusimos una página web elegante y fácil de navegar."],
+    deliv:[["Manual de marca","Logo, color, tipografía y usos"],["Estrategia de cobranding","3 fases de contenido"],["Propuesta web","Navegación y estilo"]],
+    palette:["#F28C18","#3D2200","#FFFFFF","#FBE9D6"] },
+
+  { id:"lawyers", cats:["universidad"], uni:true, sem:"Proyecto 2025", year:"2025", color:"#2462F1",
+    client:"Lawyers International", place:"Trámites de visa · Bogotá", role:"Proyecto académico · 2025",
+    title:"El Regalo Secreto de Santa", concept:"El mejor regalo de Santa está aquí",
+    short:"Campaña navideña en redes para una firma de trámites de visa, con investigación, serie de videos, kit de fidelización, KPIs y manual de marca.",
+    tags:["Focus group","Campaña navideña","Video","Manual de marca"],
+    team:"Trabajo en equipo",
+    slides:[],
+    reto:"Posicionar a Lawyers International como la opción más confiable para tramitar visas B1/B2 y lograr 30 % más de reconocimiento de marca entre el 15 de noviembre y el 31 de diciembre de 2025.",
+    hice:["Investigación cuantitativa: demanda, cambios normativos y benchmark de cuatro competidores (VisaYa, DH Asesorías, Visa Fácil y VisasUSA).","Focus group para entender qué genera confianza al elegir una firma: tranquilidad, ahorro de tiempo, respaldo económico y seguimiento digital.","Concepto El Regalo Secreto de Santa: tres capítulos con cinco videos de unos 30 segundos y cuatro piezas estáticas cada uno, en Instagram y TikTok.","Kit viajero de fidelización (500 kits) con cotizaciones de proveedores, cronograma y KPIs de reconocimiento, interacción y conversión.","Manual de marca con logo, paleta, tipografías y tono de comunicación, y una serie de videos para la campaña del Mundial."],
+    deliv:[["15 videos","3 capítulos navideños"],["Kit viajero","500 kits de fidelización"],["Manual de marca","Identidad y tono"]],
+    palette:["#161580","#2462F1","#D42931","#FFFFFF"] }
+];
+
+const GROUPS = [
+  { id:"g-cf", name:"CF Gastrobar", logo:"img/cf-logo.webp", dark:true, color:"var(--sun)",
+    meta:"Restaurante y bar · Sahagún, Córdoba", rel:"Freelance",
+    desc:"Carta impresa y en video para TV, campañas de eventos, video de servicios, aplicativos web de reservas y menú del día, banner de marca, photo wall, tarjeta y sticker de domicilios.",
+    items:["cf-carta","cf-halloween","cf-cabalgatas","cf-servicios-video","cf-apps","cf-marca-local","cf-tarjeta"] },
+  { id:"g-rincon", name:"Gimnasio Rincón de los Ángeles", logo:"img/rincon-logo.webp", color:"var(--sky)",
+    meta:"Colegio de preescolar y primaria · Kennedy, Bogotá", rel:"Freelance",
+    desc:"Piezas gráficas para la temporada de matrículas, volante de inscripciones, pendón de vacaciones recreativas y tres videos animados: inscripciones, rutas escolares y correo para los padres.",
+    items:["rincon-piezas","rincon-volante","rincon-vacaciones","rincon-videos"] },
+  { id:"g-jc", name:"Marca personal", logo:"img/pop/isotipo.svg", dark:true, color:"var(--coral)",
+    meta:"Joaquín Cogollo · Publicista & Mercadólogo", rel:"Proyecto propio",
+    desc:"Mi propia identidad: logotipo con la burbuja de diálogo, manual de marca y sus aplicaciones impresas.",
+    items:["jc-marca"] }
+
+];
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const byId = id => P.find(p=>p.id===id);
+
+/* ---------- Grupos por empresa ---------- */
+function stratCover(p){
+  const h=[22,34,28,44,40,56];
+  return `<div class="strat-cover" style="--sc:${p.sc};--rc:${p.rc}"><span class="kind">${esc(p.kind)}</span><div class="ring" aria-hidden="true"></div><div class="big">${esc(p.big)}</div><div class="bars" aria-hidden="true">${h.map(x=>`<i style="height:${x}px"></i>`).join("")}</div></div>`;
+}
+function card(p, showClient){
+  return `<button class="card ${p.size==="wide"?"wide":""}" type="button" data-id="${p.id}" data-svc="${(p.svc||[]).join(" ")}" aria-label="Abrir caso: ${esc(p.title)}">
+    <span class="view">Ver caso →</span>
+    ${p.cover || stratCover(p)}
+    <span class="card-body">
+      <span class="card-top"><span>${esc(showClient ? p.client : p.tags[0])}</span><span>${esc(p.kind ? "Estrategia" : p.slides.length+(p.slides.length>1?" piezas":" pieza"))}</span></span>
+      <h3>${esc(p.title)}</h3>
+      <p>${esc(p.short)}</p>
+      <span class="tags">${p.tags.map(t=>`<span class="tag">${esc(t)}</span>`).join("")}</span>
+    </span>
+  </button>`;
+}
+$("#groups").innerHTML = GROUPS.map((g,gi)=>`
+  <section class="group" id="${g.id}" style="--gc:${g.color}" aria-labelledby="${g.id}-t">
+    <header class="group-head">
+      <div class="g-logo ${g.dark?"dark":""}">${g.logo?`<img src="${g.logo}" alt="Logo ${esc(g.name)}">`:`<span>${g.initials}</span>`}</div>
+      <div class="g-info">
+        <span class="g-num">${g.id==="g-jc"?"Marca propia":"Cliente · "+esc(g.rel)}</span>
+        <h3 id="${g.id}-t">${esc(g.name)}</h3>
+        <span class="g-meta">${esc(g.meta)}</span>
+        <p>${esc(g.desc)}</p>
+      </div>
+      <span class="g-count">${g.items.length} proyecto${g.items.length>1?"s":""}</span>
+    </header>
+    <div class="grid">${g.items.map(id=>card(byId(id), false)).join("")}</div>
+  </section>`).join("");
+
+const SERVICES = [
+  {k:"all", n:"Todo", c:"var(--violet)", ic:'<path d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z"/>', d:"Todos los proyectos para clientes, agrupados por empresa."},
+  {k:"redes", n:"Piezas para redes", c:"var(--violet)", ic:'<rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-5-5L5 21"/>', d:"Posts, historias y portadas con una línea visual coherente para cada marca."},
+  {k:"menus", n:"Diseño editorial", c:"var(--sun)", ic:'<path d="M2 4h7a3 3 0 0 1 3 3v13a2 2 0 0 0-2-2H2z"/><path d="M22 4h-7a3 3 0 0 0-3 3v13a2 2 0 0 1 2-2h8z"/>', d:"Cartas, catálogos, brochures y documentos con una diagramación clara que guía la lectura y destaca lo importante."},
+  {k:"banners", n:"Banners y gran formato", c:"var(--teal)", ic:'<rect x="2" y="6" width="20" height="9" rx="1.5"/><path d="M6 15v5M18 15v5M6 10h8"/>', d:"Pendones y banners para fachada, calle o evento, diseñados para leerse a distancia."},
+  {k:"photowall", n:"Photo wall banner", c:"var(--sun)", ic:'<rect x="3" y="3" width="18" height="15" rx="1.5"/><path d="M3 8h18M3 13h18M8.5 3v15M15.5 3v15M7 18v3M17 18v3"/>', d:"Fondos de marca para fotos en eventos, lanzamientos y celebraciones: el logo en patrón repetido o un diseño temático para que cada foto que publiquen los invitados lleve la marca."},
+  {k:"volantes", n:"Volantes y flyers", c:"var(--pink)", ic:'<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/>', d:"Volantes impresos y flyers digitales para eventos, promociones e inscripciones."},
+  {k:"pop", n:"Tarjetas y stickers", c:"var(--teal)", ic:'<rect x="2" y="5" width="15" height="10" rx="2"/><path d="M5 9h6M5 12h4"/><circle cx="18" cy="16" r="4"/>', d:"Tarjetas de presentación y stickers que acompañan al cliente después de la compra: QR, contacto y la marca siempre a mano."},
+  {k:"apps", n:"Aplicativos web", c:"var(--sky)", ic:'<rect x="5" y="2" width="14" height="20" rx="2.5"/><path d="M9 6h6M9 10h6M9 14h3M11 18h2"/>', d:"Herramientas web a la medida del negocio: formularios de reserva que llegan a WhatsApp y paneles que generan piezas de forma automática."},
+  {k:"video", n:"Videos corporativos", c:"var(--coral)", ic:'<rect x="2.5" y="6" width="13" height="12" rx="2.5"/><path d="M15.5 10.5l6-3.5v10l-6-3.5"/>', d:"Videos para presentar empresas, servicios o lanzamientos, en formato vertical y horizontal. Edición en CapCut Pro."}
+];
+const filters = $("#filters"), svcDesc=$("#svc-desc");
+const countSvc = k => k==="all" ? GROUPS.reduce((n,g)=>n+g.items.length,0) : P.filter(p=>(p.svc||[]).includes(k)).length;
+filters.innerHTML = SERVICES.map((v,i)=>`<button class="chip svc-chip" type="button" data-s="${v.k}" aria-pressed="${i===0}" style="--cc:${v.c}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${v.ic}</svg>${v.n}${countSvc(v.k)?`<span class="n">${countSvc(v.k)}</span>`:""}</button>`).join("");
+let noteEl=null;
+function filterSvc(k){
+  const v=SERVICES.find(x=>x.k===k);
+  filters.querySelectorAll(".chip").forEach(c=>c.setAttribute("aria-pressed", c.dataset.s===k));
+  svcDesc.style.setProperty("--cc",v.c); svcDesc.textContent=v.d;
+  let shown=0;
+  document.querySelectorAll(".group").forEach(gr=>{
+    let n=0;
+    gr.querySelectorAll(".card").forEach(c=>{ const on = k==="all" || c.dataset.svc.split(" ").includes(k); c.hidden=!on; if(on) n++; });
+    gr.hidden = n===0; shown+=n;
+    gr.querySelector(".g-count").textContent = k==="all" ? `${n} proyecto${n>1?"s":""}` : `${n} de ${gr.querySelectorAll(".card").length}`;
+  });
+  if(noteEl){ noteEl.remove(); noteEl=null; }
+  if(!shown){
+    noteEl=document.createElement("div"); noteEl.className="svc-empty";
+    noteEl.innerHTML=`<b>${v.n}</b><p>Todavía no hay muestras publicadas en el portafolio. Si quieres ver ejemplos, escríbeme y te comparto el material.</p><a class="btn btn-accent" href="#contacto">Pedir muestras</a>`;
+    $("#groups").prepend(noteEl);
+  }
+}
+filters.addEventListener("click", e=>{ const b=e.target.closest(".chip"); if(b) filterSvc(b.dataset.s); });
+filterSvc("all");
+$("#groups").addEventListener("click", e=>{ const c=e.target.closest(".card"); if(c) openCase(c.dataset.id); });
+
+
+/* ---------- Universidad ---------- */
+const UNI = P.filter(p=>p.uni);
+let uniIdx = UNI.length-1;
+const uniTabs=$("#uni-tabs"), uniPanel=$("#uni-panel");
+uniTabs.innerHTML = UNI.map((u,i)=>`<button class="uni-tab" type="button" role="tab" id="ut-${i}" aria-controls="uni-panel" style="--uc:${u.color}"><small>${esc(u.sem)}${u.year&&!u.sem.includes(u.year)?" · "+u.year:""}</small><b>${esc(u.client.replace("Espumas Santafé · ",""))}</b><span>${esc(u.title)}</span></button>`).join("");
+function showUni(i, anim){
+  uniIdx=i; const u=UNI[i];
+  uniTabs.querySelectorAll(".uni-tab").forEach((b,k)=>{b.setAttribute("aria-selected",k===i); b.tabIndex=k===i?0:-1;});
+  uniPanel.style.setProperty("--uc",u.color); uniPanel.setAttribute("aria-labelledby","ut-"+i);
+  uniPanel.innerHTML = `
+    <div class="up-text">
+      <span class="up-meta">${esc(u.role)}${u.year&&!u.role.includes(u.year)?" · "+u.year:""}</span>
+      <h3>${esc(u.title)}</h3>
+      <div class="up-client">${esc(u.client)} <span>· ${esc(u.place)}</span></div>
+      <div class="up-concept">${esc(u.concept)}</div>
+      <div class="up-sub">El reto</div>
+      <p>${esc(u.reto)}</p>
+      <div class="up-tags">${u.tags.map(t=>`<span class="tag">${esc(t)}</span>`).join("")}</div>
+    </div>
+    <div class="up-did">
+      <div class="up-sub">Lo que hice</div>
+      <ul>${u.hice.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>
+    </div>
+    <div class="up-actions">
+      <span class="up-team">${esc(u.team)}</span>
+      <span class="up-nav">
+        <button class="icon-btn" type="button" data-step="-1" aria-label="Semestre anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+        <button class="icon-btn" type="button" data-step="1" aria-label="Semestre siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg></button>
+      </span>
+    </div>`;
+  if(anim){ uniPanel.classList.remove("swap"); void uniPanel.offsetWidth; uniPanel.classList.add("swap"); }
+}
+uniTabs.addEventListener("click", e=>{ const b=e.target.closest(".uni-tab"); if(b) showUni([...uniTabs.children].indexOf(b), true); });
+uniTabs.addEventListener("keydown", e=>{
+  if(e.key!=="ArrowRight"&&e.key!=="ArrowLeft") return; e.preventDefault();
+  const n=(uniIdx+(e.key==="ArrowRight"?1:-1)+UNI.length)%UNI.length; showUni(n,true); uniTabs.children[n].focus();
+});
+uniPanel.addEventListener("click", e=>{
+  const st=e.target.closest("[data-step]"); if(st){ const n=(uniIdx+ +st.dataset.step+UNI.length)%UNI.length; showUni(n,true); uniTabs.children[n].scrollIntoView({block:"nearest",inline:"center",behavior:"smooth"}); return; }
+  const op=e.target.closest("[data-open]"); if(op){ openCase(op.dataset.open); return; }
+  const sl=e.target.closest("[data-slide]"); if(sl){ openCase(UNI[uniIdx].id); showSlide(+sl.dataset.slide); }
+});
+showUni(0,false);
+
+/* Portada: luz que sigue el cursor */
+(function(){const pt=document.querySelector(".portada"); if(!pt||matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+pt.addEventListener("pointermove",e=>{const r=pt.getBoundingClientRect(); pt.style.setProperty("--px",((e.clientX-r.left)/r.width*100).toFixed(1)+"%"); pt.style.setProperty("--py",((e.clientY-r.top)/r.height*100).toFixed(1)+"%");});})();
+
+/* Luces que siguen el cursor en toda la página + revelado + inclinación de tarjetas */
+(function(){
+  const rm=matchMedia("(prefers-reduced-motion: reduce)").matches; if(rm) return;
+  const root=document.documentElement; let tx=70,ty=30,cx=70,cy=30,raf=0;
+  const loop=()=>{cx+=(tx-cx)*.08; cy+=(ty-cy)*.08; root.style.setProperty("--mx",cx.toFixed(2)+"%"); root.style.setProperty("--my",cy.toFixed(2)+"%"); raf=(Math.abs(tx-cx)+Math.abs(ty-cy)>.1)?requestAnimationFrame(loop):0;};
+  addEventListener("pointermove",e=>{tx=e.clientX/innerWidth*100; ty=e.clientY/innerHeight*100; if(!raf) raf=requestAnimationFrame(loop);},{passive:true});
+  /* sin cursor (celular): las luces se pasean solas */
+  if(matchMedia("(hover: none)").matches){ let t=0; setInterval(()=>{t+=.02; tx=50+35*Math.sin(t); ty=40+30*Math.cos(t*.8); if(!raf) raf=requestAnimationFrame(loop);},60); }
+  /* revelado al hacer scroll: el contenido ya es visible, solo sube a su lugar */
+  if("IntersectionObserver" in window){
+    const els=[...document.querySelectorAll(".sec-head,.svc-bar,.group,.uni-tabs,.uni-panel,.steps-acc,.profile > div,.rates,.contact .wrap > div,.about-head,.about-body")];
+    els.forEach(el=>{ const r=el.getBoundingClientRect(); el.classList.add("rv"); if(r.top>innerHeight) el.classList.add("pre"); });
+    const io=new IntersectionObserver(es=>es.forEach(en=>{ if(en.isIntersecting){ en.target.classList.remove("pre"); io.unobserve(en.target);} }),{rootMargin:"0px 0px -8% 0px"});
+    els.forEach(el=>io.observe(el));
+  }
+  /* inclinación 3D de las tarjetas */
+  document.addEventListener("pointermove",e=>{
+    const c=e.target.closest&&e.target.closest(".card"); document.querySelectorAll(".card.tilt").forEach(x=>{ if(x!==c){ x.classList.remove("tilt"); x.style.transform=""; }});
+    if(!c||e.pointerType!=="mouse") return;
+    const r=c.getBoundingClientRect(), px=(e.clientX-r.left)/r.width-.5, py=(e.clientY-r.top)/r.height-.5;
+    c.classList.add("tilt"); c.style.transform=`perspective(900px) rotateY(${px*7}deg) rotateX(${-py*7}deg) translateY(-6px)`;
+  },{passive:true});
+})();
+
+
+/* ---------- Rotating word ---------- */
+(function(){
+  const items=[...document.querySelectorAll(".rot span")]; let i=0;
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  setInterval(()=>{ items[i].classList.remove("on"); i=(i+1)%items.length; items[i].classList.add("on"); }, 2400);
+})();
+
+/* ---------- Process ---------- */
+const STEPS = [
+  {t:"Recibir el encargo", h:"Escuchar al cliente y reunir su material", p:"Empiezo por lo que el cliente necesita lograr y por el material que me entrega: logo, fotos, textos, precios y fechas. Si lo trae todo, arranco directo al diseño. Si le falta información, la completo yo con una investigación de su marca, su público y su competencia.", li:["Conversación o brief corto: qué necesita, para quién y para cuándo.","Recibo y ordeno el material del cliente: logo, fotos, textos y datos.","Si falta información, investigo la marca, el público y la competencia para definir el mensaje.","Aclaro antes de diseñar el formato, las medidas y dónde se va a usar la pieza."], tools:["Brief","Material del cliente","Investigación cuando hace falta"]},
+  {t:"Proponer la idea", h:"Una línea gráfica antes de producir", p:"Con el material en la mano defino el mensaje y el estilo visual de la marca o del evento, para que todas las piezas se vean como una sola campaña.", li:["Mensaje principal y jerarquía de la información.","Paleta, tipografías y estilo visual, respetando la marca del cliente.","Formatos que se necesitan: impreso, redes, gran formato o video."], tools:["Referentes","Identidad del cliente"]},
+  {t:"Crear", h:"Piezas que se leen en tres segundos", p:"Diseño y redacto las piezas: desde una carta o un volante hasta un banner de 3 metros, un photo wall, historias, videos animados y aplicativos sencillos.", li:["Diseño gráfico para impreso, gran formato y redes.","Textos claros que llevan a la acción: reservar, llamar o escribir.","Videos animados y corporativos para redes, pantallas y correo."], tools:["Canva","Illustrator","Affinity","CapCut Pro","Claude"]},
+  {t:"Ajustar y entregar", h:"Piezas listas para usar", p:"Reviso las piezas con el cliente, hago los ajustes y entrego los archivos finales en el formato que cada medio necesita.", li:["Rondas de ajustes con el cliente.","Archivos listos para imprenta y para redes.","Versiones adaptadas a cada formato."], tools:["PDF para imprenta","PNG / JPG para redes"]}
+];
+const stepList=$("#step-list");
+stepList.innerHTML = STEPS.map((s,i)=>`<li>
+  <button class="acc-btn" type="button" id="acc-${i}" aria-expanded="false" aria-controls="accp-${i}"><span class="acc-num">0${i+1}</span><span class="acc-t"><b>${esc(s.t)}</b><span>${esc(s.h)}</span></span><span class="acc-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button>
+  <div class="acc-panel" id="accp-${i}" role="region" aria-labelledby="acc-${i}"><div class="acc-inner"><div class="acc-body"><div><p>${esc(s.p)}</p><div class="tools">${s.tools.map(x=>`<span>${esc(x)}</span>`).join("")}</div></div><ul>${s.li.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div></div></div>
+</li>`).join("");
+function toggleStep(i, force){
+  stepList.querySelectorAll(".acc-btn").forEach((b,k)=>{
+    const open = k===i ? (force ?? b.getAttribute("aria-expanded")!=="true") : false;
+    b.setAttribute("aria-expanded", open); document.getElementById("accp-"+k).classList.toggle("open", open);
+  });
+}
+stepList.addEventListener("click", e=>{ const b=e.target.closest(".acc-btn"); if(b) toggleStep([...stepList.querySelectorAll(".acc-btn")].indexOf(b)); });
+toggleStep(0,true);
+
+/* Formación desplegable */
+(function(){ const b=$("#edu-btn"), p=$("#edu-panel"); if(!b) return;
+  b.addEventListener("click",()=>{ const o=b.getAttribute("aria-expanded")!=="true"; b.setAttribute("aria-expanded",o); p.classList.toggle("open",o); }); })();
+
+/* ---------- Case viewer ---------- */
+const dlg=$("#case"); let cur=-1, slide=0;
+dlg.addEventListener("close",()=>{const v=document.getElementById("stage-vid"); if(v) v.pause();});
+function openCase(id){
+  cur = P.findIndex(p=>p.id===id); if(cur<0||P[cur].uni) return;
+  renderCase();
+  if(!dlg.open) dlg.showModal();
+  $("#case-inner").scrollTop=0;
+  try{ history.replaceState(null,"","#"+id);}catch(e){}
+}
+function renderCase(){
+  const p=P[cur]; slide=0;
+  $("#case-prev").hidden = $("#case-next").hidden = false;
+  {const L=P.filter(x=>!x.uni); $("#case-crumbs").textContent = `Proyecto ${L.indexOf(p)+1} de ${L.length} · ${p.client}`;}
+  const facts = [["Cliente",p.client],p.place?["Lugar",p.place]:null,["Rol",p.role],p.year?["Año",p.year]:null,p.kind?["Estado",p.kind]:null].filter(Boolean);
+  let media="";
+  if(p.device){
+    media = `<div class="device"><div class="seg" role="group" aria-label="Vista del sitio">
+      <button type="button" data-v="0" aria-pressed="true">Escritorio · Inicio</button>
+      <button type="button" data-v="1" aria-pressed="false">Escritorio · Niveles</button>
+      <button type="button" data-v="2" aria-pressed="false">Móvil</button></div>
+      <div class="dev-stage" id="dev-stage"></div></div>`;
+  } else if(p.slides){
+    media = `<div class="stage">
+      <div class="stage-main" id="stage-main"><img id="stage-img" alt=""><video id="stage-vid" controls playsinline preload="none" hidden></video></div>
+      ${p.slides.length>1?`<button class="icon-btn nav-arrow prev" type="button" id="s-prev" aria-label="Imagen anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg></button><button class="icon-btn nav-arrow next" type="button" id="s-next" aria-label="Imagen siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg></button>`:""}
+      <div class="stage-cap"><span><b id="cap-t"></b> · <span id="cap-d"></span></span><span id="cap-n"></span></div>
+      ${p.slides.length>1?`<div class="thumbs" id="thumbs">${p.slides.map((s,i)=>`<button type="button"${s.video?' class="is-vid"':""} aria-label="Ver ${esc(s.t)}"><img src="${s.src}" alt=""></button>`).join("")}</div>`:""}
+    </div>`;
+  }
+  $("#case-body").innerHTML = `
+    <div class="case-hero">
+      <div><div class="eyebrow">${esc(p.tags.join(" · "))}</div><h2 id="case-title">${esc(p.title)}</h2><p class="lead" style="margin-top:14px">${esc(p.short)}</p></div>
+      <dl class="facts">${facts.map(([a,b])=>`<dt>${a}</dt><dd>${esc(b)}</dd>`).join("")}</dl>
+    </div>
+    ${media}
+    <div class="case-cols">
+      <div><h3>El reto</h3><p>${esc(p.reto)}</p>
+        ${p.palette?`<h3 style="margin-top:28px">Paleta</h3><div class="palette">${p.palette.map(c=>`<span><i style="background:${c}"></i>${c}</span>`).join("")}</div>`:""}
+      </div>
+      <div><h3>Lo que hice</h3><ul>${p.hice.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>
+    </div>
+    <div class="deliv">${p.deliv.map(([a,b])=>`<div><b>${esc(a)}</b><small>${esc(b)}</small></div>`).join("")}</div>`;
+  if(p.device) setupDevice(p); else if(p.slides) { setupStage(p); showSlide(0); }
+}
+function setupStage(p){
+  const sp=$("#s-prev"), sn=$("#s-next"), th=$("#thumbs");
+  if(sp) sp.onclick=()=>showSlide((slide-1+p.slides.length)%p.slides.length);
+  if(sn) sn.onclick=()=>showSlide((slide+1)%p.slides.length);
+  if(th) th.onclick=e=>{const b=e.target.closest("button"); if(b) showSlide([...th.children].indexOf(b));};
+  $("#stage-img").onclick=()=>zoom(p.slides[slide].src, p.slides[slide].t);
+}
+function showSlide(i){
+  const p=P[cur], s=p.slides[i]; slide=i;
+  const img=$("#stage-img"), vid=$("#stage-vid");
+  vid.pause();
+  if(s.video){ img.hidden=true; vid.hidden=false; vid.poster=s.src; vid.src=s.video; vid.setAttribute("aria-label",s.t); }
+  else { vid.hidden=true; vid.removeAttribute("src"); vid.load(); img.hidden=false; img.src=s.src; img.alt=s.t+" — "+p.title; }
+  $("#stage-main").classList.toggle("wide-img", !!s.wide);
+  $("#cap-t").textContent=s.t; $("#cap-d").textContent=s.d; $("#cap-n").textContent=`${i+1} / ${p.slides.length} · ${s.video?"dale play para verlo":"toca para ampliar"}`;
+  const th=$("#thumbs"); if(th) [...th.children].forEach((b,k)=>b.classList.toggle("on",k===i));
+}
+function setupDevice(p){
+  const stage=$("#dev-stage"), seg=document.querySelector(".seg");
+  const render=v=>{
+    seg.querySelectorAll("button").forEach(b=>b.setAttribute("aria-pressed", b.dataset.v==v));
+    const s=p.slides[v];
+    stage.innerHTML = v==2
+      ? `<div class="dev-phone"><div class="scr" tabindex="0" aria-label="Vista móvil, desplázate"><img src="${s.src}" alt="${esc(s.t)}"></div></div>`
+      : `<div class="dev-desk"><div class="bar"><i></i><i></i><i></i><span>gimnasiorincondelosangeles.com.co</span></div><img src="${s.src}" alt="${esc(s.t)}" style="cursor:zoom-in"></div>`;
+    const im=stage.querySelector(".dev-desk img"); if(im) im.onclick=()=>zoom(s.src,s.t);
+  };
+  seg.onclick=e=>{const b=e.target.closest("button"); if(b) render(+b.dataset.v);};
+  render(0);
+}
+/* ---------- Ejemplos por servicio ---------- */
+const SHOW = {
+  "redes": { title:"Piezas para redes sociales", eyebrow:"Servicio · Ejemplos de dos clientes", stack:true,
+    intro:"Diseño de contenido para redes sociales en dos sectores distintos: entretenimiento y educación. Cada sistema de piezas responde a un objetivo comercial concreto y mantiene una línea gráfica coherente en todos sus formatos.",
+    items:[
+      { case:"cf-halloween", client:"CF Gastrobar", place:"Sahagún, Córdoba", color:"var(--coral)",
+        imgs:[{src:"img/cf-promo-palcos.webp",t:"Historia · Solo por 2 días (fondo oscuro)"},{src:"img/cf-promo-claro.webp",t:"Historia · Solo por 2 días (fondo claro)"},{src:"img/cf-flyer.webp",t:"Flyer digital Fiesta de Halloween"}],
+        title:"Campaña de preventa · Fiesta de Halloween", format:"Historias 1080 × 1920 · flyer digital",
+        goal:"Impulsar la preventa de palcos durante dos días y asegurar la ocupación del evento del 31 de octubre.",
+        how:["Desarrollé dos versiones de la historia, en fondo oscuro y claro, para rotarlas y evitar la saturación visual de la audiencia.","Jerarquicé la oferta como eje del mensaje: abono del 30 % y obsequio por reserva anticipada.","Integré un llamado a la acción directo y las líneas de reserva para convertir la interacción en ventas por mensaje."] },
+      { case:"rincon-piezas", client:"Gimnasio Rincón de los Ángeles", place:"Kennedy, Bogotá", color:"var(--sky)",
+        imgs:[{src:"img/rincon-afiche-inscripciones.webp",t:"Post · Inscripciones abiertas 2027"},{src:"img/rincon-vuelta-colegio.webp",t:"Post · De vuelta al colegio"},{src:"img/rincon-banner-matriculas.webp",t:"Portada · Matrículas abiertas",wide:true},{src:"img/rincon-banner-inscripciones.webp",t:"Portada · Inscripciones abiertas con la fachada",wide:true}],
+        title:"Campaña de matrículas 2027", format:"Posts verticales · portadas horizontales",
+        goal:"Generar inscripciones de nuevas familias para el año escolar 2027 y fortalecer la relación con la comunidad educativa actual.",
+        how:["Equilibré piezas informativas (servicios, ubicación y formulario de inscripción) con piezas emocionales de bienvenida.","Incorporé el uniforme, el escudo y la fachada real del colegio para reforzar el reconocimiento de la institución.","Adapté el sistema a portadas horizontales para Facebook, unificando los datos de contacto en todos los formatos."] }
+    ] },
+  "volantes": { title:"Volantes y flyers", eyebrow:"Servicio · Ejemplos de dos clientes",
+    intro:"Dos volantes con objetivos distintos: uno para vender palcos en un evento y otro para atraer inscripciones a un colegio.",
+    items:[
+      { case:"cf-halloween", client:"CF Gastrobar", place:"Sahagún, Córdoba", color:"var(--coral)", src:"img/cf-flyer.webp",
+        title:"Flyer Fiesta de Halloween", format:"Media carta · impreso y digital",
+        goal:"Vender palcos oro, plata y zona VIP para la noche del 31 de octubre.",
+        how:["Convertí el plano del lugar en un mapa de palcos para elegir y reservar desde el mismo volante.","Puse los precios en una franja propia para que se comparen de un vistazo.","Repetí las dos líneas de reservas y la dirección al pie como llamado a la acción."] },
+      { case:"rincon-volante", client:"Gimnasio Rincón de los Ángeles", place:"Kennedy, Bogotá", color:"var(--sky)", src:"img/rincon-volante.webp",
+        title:"Volante Inscripciones abiertas", format:"Media carta · tiraje de 2.000",
+        goal:"Atraer nuevas familias del sector para la temporada de inscripciones.",
+        how:["Organicé los once servicios del colegio en una lista de chequeo fácil de leer.","Incluí la aprobación de la Secretaría de Educación para dar confianza a los padres.","Agregué mapa de la sede y código QR para pasar del papel al formulario."] }
+    ] }
+};
+function openShow(key){
+  const sh=SHOW[key]; if(!sh) return;
+  cur=-1;
+  $("#case-crumbs").textContent = `Servicio · ${sh.title}`;
+  $("#case-prev").hidden = $("#case-next").hidden = true;
+  $("#case-body").innerHTML = `
+    <div class="case-hero"><div><div class="eyebrow">${esc(sh.eyebrow)}</div><h2 id="case-title">${esc(sh.title)}</h2><p class="lead" style="margin-top:14px">${esc(sh.intro)}</p></div></div>
+    <div class="ex-grid ${sh.stack?"stack":""}">${sh.items.map(it=>`
+      <article class="ex" style="--ec:${it.color}">
+        ${it.imgs ? `<div class="ex-strip">${it.imgs.map(im=>`<button class="ex-img ${im.wide?"wide":""}" type="button" data-src="${im.src}" aria-label="Ampliar ${esc(im.t)}"><img src="${im.src}" alt="${esc(im.t)}" loading="lazy"><span>${esc(im.t)}</span></button>`).join("")}</div>` : `<button class="ex-img" type="button" data-src="${it.src}" aria-label="Ampliar ${esc(it.title)}"><img src="${it.src}" alt="${esc(it.title)}"></button>`}
+        <div class="ex-body">
+          <span class="ex-client">${esc(it.client)} · ${esc(it.place)}</span>
+          <h3>${esc(it.title)}</h3>
+          <span class="ex-format">${esc(it.format)}</span>
+          <p><b>Objetivo:</b> ${esc(it.goal)}</p>
+          <ul>${it.how.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>
+          <button class="ex-more" type="button" data-case="${it.case}">Ver caso completo →</button>
+        </div>
+      </article>`).join("")}</div>`;
+  $("#case-body").querySelectorAll(".ex-img").forEach(b=>b.onclick=()=>zoom(b.dataset.src, b.querySelector("img").alt));
+  $("#case-body").querySelectorAll(".ex-more").forEach(b=>b.onclick=()=>{ openCase(b.dataset.case); $("#case-inner").scrollTop=0; });
+  if(!dlg.open) dlg.showModal();
+  $("#case-inner").scrollTop=0;
+}
+
+$("#case-close").onclick=()=>dlg.close();
+const caseStep=d=>{do{cur=(cur+d+P.length)%P.length}while(P[cur].uni); renderCase(); $("#case-inner").scrollTop=0;};
+$("#case-prev").onclick=()=>caseStep(-1);
+$("#case-next").onclick=()=>caseStep(1);
+dlg.addEventListener("click", e=>{ if(e.target===dlg) dlg.close(); });
+dlg.addEventListener("close", ()=>{ try{history.replaceState(null,"",location.pathname+location.search);}catch(e){} });
+dlg.addEventListener("keydown", e=>{
+  if($("#zoom").classList.contains("on")) return;
+  const p=cur>=0?P[cur]:null; if(!p || !p.slides || p.device || e.target.closest("input,textarea")) return;
+  if(e.key==="ArrowRight") showSlide((slide+1)%p.slides.length);
+  if(e.key==="ArrowLeft") showSlide((slide-1+p.slides.length)%p.slides.length);
+});
+
+/* ---------- Zoom ---------- */
+const zm=$("#zoom");
+function zoom(src,alt){ $("#zoom-img").src=src; $("#zoom-img").alt=alt||""; zm.classList.add("on"); zm.scrollTop=0; zm.querySelector("button").focus(); }
+zm.addEventListener("click", ()=>zm.classList.remove("on"));
+zm.addEventListener("keydown", e=>{ if(e.key==="Escape"){ e.preventDefault(); e.stopPropagation(); zm.classList.remove("on"); }});
+dlg.addEventListener("cancel", e=>{ if(zm.classList.contains("on")){ e.preventDefault(); zm.classList.remove("on"); }});
+
+/* ---------- Copy ---------- */
+document.querySelectorAll("[data-copy]").forEach(b=>b.addEventListener("click", ()=>{
+  const el=document.getElementById(b.dataset.copy), txt=el.textContent.trim();
+  const done=()=>{ b.textContent="Copiado"; setTimeout(()=>b.textContent="Copiar",1600); };
+  const fallback=()=>{ const r=document.createRange(); r.selectNodeContents(el); const s=getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent="Seleccionado"; setTimeout(()=>b.textContent="Copiar",1600); };
+  try{ navigator.clipboard.writeText(txt).then(done, fallback);}catch(e){ fallback(); }
+}));
+
+/* ---------- Active nav ---------- */
+const links=[...document.querySelectorAll(".nav-links a")];
+if("IntersectionObserver" in window){
+  const io=new IntersectionObserver(es=>es.forEach(en=>{ if(en.isIntersecting) links.forEach(a=>a.classList.toggle("on", a.getAttribute("href")==="#"+en.target.id)); }),{rootMargin:"-45% 0px -50% 0px"});
+  ["sobre-mi","trabajo","universidad","proceso","perfil","contacto"].forEach(id=>io.observe(document.getElementById(id)));
+}
+
+
+/* Deep link a un caso: #cf-carta, #rincon-web… */
+const h=location.hash.slice(1); if(P.some(p=>p.id===h)) setTimeout(()=>openCase(h),300);
+</script>
+
+</body></html>
